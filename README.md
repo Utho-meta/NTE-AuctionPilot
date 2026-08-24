@@ -8,9 +8,9 @@
 
 [前往 Releases 下载最新版](https://github.com/Utho-meta/NTE-AuctionPilot/releases/latest)
 
-当前版本：`v0.12.2`
+当前版本：`v0.12.3`
 
-请将 `AuctionPilot-v0.12.2.zip` 完整解压到独立的新文件夹，再运行 `AuctionPilot.exe`。
+请将 `AuctionPilot-v0.12.3.zip` 完整解压到独立的新文件夹，再运行 `AuctionPilot.exe`。
 
 不要只单独复制 EXE；程序需要与目录内的 DLL、Assets、models、runtimes 等依赖文件一起运行。
 
@@ -25,6 +25,7 @@
 - 保守与激进两种主模型估价策略。
 - 阿德勒助手：在第 4 轮提供透明估价，并显示已确定价值与剩余红格均值估算。
 - 达夫蒂尔助手：根据已知信息辅助排除组合方案。
+- 公开金品数量会经多数确认后用于达夫蒂尔的金红拆分。
 - 总金格与金品总价值信息可用于估算。
 - 单格均、三格均、九格均提供红藏品存在性提示。
 - 滚动扫描、扫描进度保持与第 4 轮结果锁定。
