@@ -1,12 +1,25 @@
-# AuctionPilot v0.12.8
+# AuctionPilot v0.12.8 + Arena v0.3.0
 
-发布日期：2026-09-26。本次仅发布主程序，**不包含实验训练报价模式**，独立 Arena 模拟器不更新。
+发布日期：2026-09-26。主程序 **不包含实验训练报价模式**；同日补充独立 Arena v0.3.0 九助手模拟器，两个 ZIP 分开下载运行。
+补发模拟器没有替换主程序 ZIP；主程序包内说明若写“模拟器未更新”，指当时首次上传，不适用于随后补发的独立模拟器。
 
 ## 下载
 
 - [主程序 AuctionPilot v0.12.8](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.8/AuctionPilot-v0.12.8.zip)
 - [SHA-256 校验文件](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.8/AuctionPilot-v0.12.8.zip.sha256.txt)
-- [此前独立模拟器 Arena v0.2.1](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.7/AuctionPilot-Arena-v0.2.1.zip)
+- [独立模拟器 Arena v0.3.0](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.8/AuctionPilot-Arena-v0.3.0.zip)
+- [模拟器 SHA-256 校验文件](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.8/AuctionPilot-Arena-v0.3.0.zip.sha256.txt)
+
+## Arena v0.3.0 补充发布
+
+- 九助手（含黑羽）、227 项图鉴、2026-09-25 校准标准局和分场冻结策略；与最新体验版使用相同环境和策略，不是新一轮训练排名。
+- 仪器固定组与组件库存：按消耗补货，也可只携带剩余组件；完整旧组保留，残缺旧组可选择先补齐再换组。
+- 每席初始 1,000 万，全部货物按原价出售，不计展柜；补货后须达到珊瑚 100 万、真珠 500 万门槛，进场再扣入场费。
+- 保留浅色 16 键报价器、任意整数报价、顶部“下一局”；包含五轮流拍、连续开局、重复提交等保护。
+- 阿德勒保留半红格参考报价策略；模拟器参考报价与主程序原有建议最高价互相独立，不向主程序加入实验训练报价。
+- 解压后运行 `AuctionPilotArena.exe`，保留同目录 `ArenaEngine.exe`、`Data` 和 JSON 文件，无需额外安装 Python 或 .NET。
+- **关闭模拟器不保存资金和库存进度。** 不包含所有特殊规则、真人拼图经验或 OCR 误差。黑羽六项启言暂按等权抽取，夜光杯、翠刃出现概率及蓝品均价组件费用仍有建模假设，详见包内说明。
+- 发布检查通过：9 项回归测试、54 组固定案例一致性、18 场打包程序对局与 6 场续局、407 次交互一致性、94 次非法操作状态保护，以及界面和实际 EXE 启动检查。
 
 ## 更新内容
 
@@ -39,3 +52,5 @@
 ## SHA-256
 
 `AuctionPilot-v0.12.8.zip`：`D993D9C706F0FF6E5FC9599DB48606DB8556749AA26DEE4EAD91050117ABAB94`
+
+`AuctionPilot-Arena-v0.3.0.zip`：`5EB01D431A8682CCB0708F9D5E0FB8C0D14FDDBDD4D646F2C5DB0D78AA1C0736`
