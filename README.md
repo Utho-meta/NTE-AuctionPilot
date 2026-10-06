@@ -8,9 +8,9 @@
 
 [前往 Releases 下载最新版](https://github.com/Utho-meta/NTE-AuctionPilot/releases/latest)
 
-当前主程序：`v0.12.9`；独立模拟器：`Arena v0.3.0`（九助手新环境，本次未更新）。
+当前主程序：`v0.12.10`；独立模拟器：`Arena v0.3.0`（九助手新环境，本次未更新）。
 
-- [下载主程序 AuctionPilot v0.12.9](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.9/AuctionPilot-v0.12.9.zip)
+- [下载主程序 AuctionPilot v0.12.10](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.10/AuctionPilot-v0.12.10.zip)
 - [下载独立模拟器 Arena v0.3.0](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.8/AuctionPilot-Arena-v0.3.0.zip)
 - [下载展柜搭配实验室 v0.3（仓内实物图版）](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/cabinet-v0.3/AuctionPilot-Cabinet-v0.3.zip)
 
@@ -53,7 +53,14 @@
 - 保留原有建议最高价，不包含实验训练报价模式。
 - 另有独立的 AuctionPilot Arena 离线人机竞拍模拟器下载包。
 
-## v0.12.9 更新重点
+## v0.12.10 更新重点
+
+- 修复最右列完整藏品被误当成右侧截断、裁图混入背景，导致永恒之心不能连续确认的问题。图像识别与仓位几何检测共用十列边界规则。
+- 不降低识别门槛，保留高价藏品 7 次确认要求；永恒之心确认身份后按 **1,314,520** 全价计入，同一仓位不重复计价。未知红格仍不直接按心或其他超级重尾报价。
+- 正式构建通过 **420 项离线检查**，包括用户原图连续扫描、确认及计价去重、最右列藏品参考回归。重复静态帧和合成参考检查不等于独立实战准确率，动态扫描仍需更多录像核验。
+- 与已验证修复测试版的生产代码及图鉴一致，不再调整估价策略、阈值、界面或录像功能；不含实验训练报价。独立模拟器和展柜工具本次均未更新。
+
+### 保留的 v0.12.9 更新
 
 - 修复达夫蒂尔未鉴定超级重尾候选抬高普通报价的问题。可能价值上限与报价计价分离；未确认身份的重尾不进入普通报价的低值/中心值，确认身份后仍计入全价。
 - 夜光杯（红色 3×3，16,800,000）与翠刃（红色 3×1，8,989,898）均已补入真实仓内参考；图鉴仍为 227 件。各只有一张实拍参考，离线缩放检查不代表独立实战准确率。
