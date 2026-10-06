@@ -12,10 +12,24 @@
 
 - [下载主程序 AuctionPilot v0.12.9](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.9/AuctionPilot-v0.12.9.zip)
 - [下载独立模拟器 Arena v0.3.0](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/v0.12.8/AuctionPilot-Arena-v0.3.0.zip)
+- [下载展柜搭配实验室 v0.3（仓内实物图版）](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/cabinet-v0.3/AuctionPilot-Cabinet-v0.3.zip)
 
-两个 ZIP 互相独立，请分别完整解压到新的文件夹。主程序运行 `AuctionPilot.exe`，模拟器运行 `AuctionPilotArena.exe`。各自的发布页提供 SHA-256 校验文件。
+主程序与模拟器这两个 ZIP 互相独立，请分别完整解压到新的文件夹。主程序运行 `AuctionPilot.exe`，模拟器运行 `AuctionPilotArena.exe`。各自的发布页提供 SHA-256 校验文件。
 
 不要只单独复制 EXE；程序需要与目录内的 DLL、Assets、models、runtimes 等依赖文件一起运行。
+
+展柜工具是独立的离线网页，不是主程序升级包。解压后用 Chrome 或 Edge 打开 `展柜搭配实验室.html`，无需安装或连接游戏；[展柜发布页及说明](https://github.com/Utho-meta/NTE-AuctionPilot/releases/tag/cabinet-v0.3)。仓库的“最新版”链接仍指向主程序。
+
+## 展柜搭配实验室 v0.3
+
+- 填写已有红藏品数量，分别生成金珠最高、方斯最高、综合推荐三种摆法；综合推荐指 **填满 120 格条件下金珠最高**，不是加权评分。
+- 固定 15×8、最多 99 件、不旋转；自动推荐不超实际库存，金珠/方斯最高方案允许留空。初始库存为空。
+- 36 种红藏品采用实际仓库实物图；柜内不叠加图鉴名称、价格和尺寸标记。推荐缩略图、拖动预览、导出摆放图同步更新。
+- 支持手动拖动、撤销重做、收益修正、自定义藏品、JSON 备份和 PNG 导出。旧版先导出 JSON，再导入新版保留库存和布局。
+- 超时结果会标为候选，可继续计算；“已证最优”只针对所填数据和工具规则。新增 6 种时产仍沿用已有资料，尚未逐件核验当前实服；不保证游戏实际收益。
+- 完全本地计算，不读取账号或游戏窗口、不代替玩家操作，不上传库存或方案。换浏览器、移动 HTML 或清理缓存前请先导出 JSON。
+
+主程序、模拟器和展柜工具三个下载包互相独立；本次展柜发布不更新主程序或模拟器。
 
 ## 适用场次
 
