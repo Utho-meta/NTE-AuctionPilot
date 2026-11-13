@@ -32,7 +32,7 @@ $releaseToken=@($credentialText | Where-Object {$_ -like 'password=*'} | ForEach
 if(-not $releaseToken){throw 'No GitHub credential available'}
 $headers=@{Authorization="Bearer $releaseToken";'User-Agent'='AuctionPilot-privacy-release';Accept='application/vnd.github+json';'X-GitHub-Api-Version'='2022-11-28'}
 $credentialText=$null;$releaseToken=$null
-function Payload($value){return [Text.Encoding]::UTF8.GetBytes(($value | ConvertTo-Json -Depth 15))}
+function Payload($value){return ,([Text.Encoding]::UTF8.GetBytes(($value | ConvertTo-Json -Depth 15)))}
 function Save-State($release){
     $state=@{id=$release.id;tag_name=$release.tag_name;commit=$release.target_commitish;url=$release.html_url;draft=$release.draft;prerelease=$release.prerelease;release_complete=$complete;receipt=$receipt;assets=@($release.assets | Select-Object id,name,size,digest,browser_download_url)}
     [IO.File]::WriteAllText($statePath,($state | ConvertTo-Json -Depth 12),[Text.UTF8Encoding]::new($false))
