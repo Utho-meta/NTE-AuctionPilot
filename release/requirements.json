@@ -1,0 +1,21 @@
+{
+  "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
+  "entrypoints": {
+    "1": "AuctionPilot.exe",
+    "2": "AuctionPilotArena.exe",
+    "3": "展柜搭配实验室.html",
+    "4": "index.html"
+  },
+  "required_paths": [
+    "项目索引.html",
+    "04-版本报告/视频/真珠与珊瑚-日常装桌宠讲解.mp4"
+  ],
+  "required_terms": {
+    "README.md": [
+      "## 最新下载", "## 开始使用", "## 历史稳定版下载",
+      "首次打开时库存和展柜均为空", "日常装桌宠", "全部出售、不计展柜",
+      "本次未修改主程序", "不等于长期实战验证"
+    ],
+    "PRIVACY.md": ["研究"]
+  }
+}

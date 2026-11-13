@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "repository": "Utho-meta/NTE-AuctionPilot",
+  "branch": "main",
+  "tag": "four-projects-20261114-r1",
+  "prerelease": true,
+  "stable_latest_tag": "v0.12.10",
+  "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
+  "archive": "AuctionPilot-FourProjects-20261114-r1.zip",
+  "checksum": "AuctionPilot-FourProjects-20261114-r1.zip.sha256.txt",
+  "assets": [
+    {
+      "name": "AuctionPilot-FourProjects-20261114-r1.zip",
+      "size": 304984596,
+      "sha256": "948033814502b2036c4731c4b4ffae3e66c7907163050a4565cc3dac63e38d0d"
+    },
+    {
+      "name": "AuctionPilot-FourProjects-20261114-r1.zip.sha256.txt",
+      "size": 109,
+      "sha256": "e351742bdde821003b51e19f0041c32a3f184fc5763db72521b8bf0cabe0b3c5"
+    }
+  ],
+  "manifest_member": "AuctionPilot-四项目-20261114/版本与验证.json",
+  "manifest": {
+    "release_date": "2026-11-14",
+    "projects": [
+      {
+        "number": 1,
+        "name": "AuctionPilot 主程序",
+        "version": "0.12.12-preview.2",
+        "status": "沿用原干净交付包；不修改现用安装",
+        "directory": "01-主程序-沿用原版",
+        "all_original_files_identical": true,
+        "files": 880
+      },
+      {
+        "number": 2,
+        "name": "Arena 模拟器",
+        "version": "0.4.0-preview.5",
+        "status": "同步2026-11-13完整配装策略及模拟机制修正",
+        "directory": "02-Arena模拟器",
+        "strategy_revision": "20261113-complete"
+      },
+      {
+        "number": 3,
+        "name": "展柜搭配实验室",
+        "version": "0.4-preview.3",
+        "status": "数据来源与报告入口更新；藏品数据和算法保留",
+        "directory": "03-展柜搭配实验室"
+      },
+      {
+        "number": 4,
+        "name": "版本分析报告",
+        "version": "1.0",
+        "status": "视频、文档、讲稿、字幕和复核记录独立归档",
+        "directory": "04-版本报告"
+      }
+    ],
+    "scope": "本次冻结标准局模拟，全部出售、不计展柜；新交付包未覆盖原安装",
+    "verification": {
+      "arena_complete_games": 60,
+      "actual_gold_core_cases": 60,
+      "arena_checks": 230,
+      "packaged_rpc_comparisons": 1196,
+      "cabinet_browser_checks": 35,
+      "cabinet_scripts_and_data_identical": true,
+      "offline_report_checks": 6,
+      "main_preserved": true,
+      "settings_and_recordings_untouched": true
+    },
+    "research_sha256": "94e587178aa6edc078798580b6655aa6f3506e8724ebe540b3ec3ca0e72eb929",
+    "frozen_selection_sha256": "4b92bd654e0580e103fa851e5501374392a38a0e1156a7cc205fb5ce33059dec",
+    "text_revision": {
+      "revision": "20261114-labels",
+      "project": 3,
+      "changes": {
+        "试试怎么摆收益更高": "你的展柜",
+        "按你已有的藏品推荐摆法": "已有藏品 · 自动布局"
+      },
+      "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
+    }
+  },
+  "entrypoints": {
+    "1": "AuctionPilot.exe",
+    "2": "AuctionPilotArena.exe",
+    "3": "展柜搭配实验室.html",
+    "4": "index.html"
+  },
+  "required_paths": [
+    "项目索引.html",
+    "04-版本报告/视频/真珠与珊瑚-日常装桌宠讲解.mp4"
+  ],
+  "required_terms": {
+    "README.md": [
+      "## 最新下载",
+      "## 开始使用",
+      "## 历史稳定版下载",
+      "首次打开时库存和展柜均为空",
+      "日常装桌宠",
+      "全部出售、不计展柜",
+      "本次未修改主程序",
+      "不等于长期实战验证"
+    ],
+    "PRIVACY.md": [
+      "研究"
+    ]
+  },
+  "notes_file": "RELEASE_NOTES_four-projects-20261114-r1.md",
+  "documents": {
+    "README.md": "a50b6f042dd0e158dea9cfb4c75dead5baf464cf20c7e9a05f2e1fd6cc407cf2",
+    "PRIVACY.md": "5dbeb445bace8969c69b2e12e508139add917afedd60e59e6c39b86556816ac5",
+    "RELEASE_NOTES_four-projects-20261114-r1.md": "cd57555afc8f56798ab947355e286e9b2f7dc8fc6edb8437a6afa4057f6b1b8f"
+  }
+}

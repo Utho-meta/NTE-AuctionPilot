@@ -1,0 +1,55 @@
+name: Release consistency
+
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published, edited]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-consistency
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # Release tags can point to older documentation; inspect the live homepage branch.
+          ref: main
+          persist-credentials: false
+      - name: Test failure detection
+        run: python3 -m unittest discover -s tests -v
+      - name: Verify homepage, release notes and fresh public downloads
+        env:
+          RELEASE_EVENT_TAG: ${{ github.event.release.tag_name || '' }}
+        run: python3 scripts/release_gate.py verify --receipt release-verification.json
+      - name: Preserve result
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: release-verification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: release-verification.json
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Show verification result
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib
+          p = pathlib.Path('release-verification.json')
+          r = json.loads(p.read_text()) if p.exists() else {'passed': False, 'error': 'No receipt; checks did not complete'}
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write('## ' + ('Release verified' if r['passed'] else 'Release incomplete') + '\n\n')
+              for key in ('tag', 'commit', 'stage', 'error'):
+                  if key in r:
+                      f.write(f'- {key}: {r[key]}\n')
+              if r['passed']:
+                  f.write('- Homepage, About, release notes, links and fresh package download all match.\n')
+          PY
