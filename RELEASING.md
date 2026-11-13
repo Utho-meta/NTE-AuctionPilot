@@ -7,7 +7,7 @@
 1. 完成本期四项目包、报告与视频及必要验证。先清理整个公开交付：内部记录、个人工作路径、账户信息、私人链接和凭据、参考声音原件、个人设置库存及私人录像截图不得进入公开包。递归处理嵌套 ZIP、程序内嵌归档、文档/图片/视频元数据和调试信息；必要第三方许可、供应商签名及不含个人身份的公共构建元数据保留。清理仅在交付副本进行，保留本地原件。
 2. 使用 Python 3.13 和 FFmpeg/ffprobe 执行 `python scripts/privacy_gate.py <最终ZIP> --report <本地检查记录>`。同时人工审阅公开文本数据、所有唯一图片、视频抽帧、讲稿字幕与授权成品音频，核对二进制元数据和许可。把本次输出的 `payload_inventory_sha256` 与各项真实审阅结论写入 `release/privacy-review.json`。该文件只记录公开摘要及方法，不写被删除的隐私值；禁止在未审阅时自动勾选。任何成员改变均须重新审阅。扫描失败、解析失败或不支持的格式都必须解决后才能继续。
 3. 冻结 ZIP，更新 README 的最新下载、四项目版本和入口、更新范围与预发布标记。旧下载放入历史区域。同步 About、PRIVACY 及本期 `RELEASE_NOTES_<tag>.md`；后者必须与 GitHub Release 正文一致。
-4. 检查 `release/requirements.json` 中本期标题、交付文件与必须撤回的已知隐私失败版本。根据最终 ZIP 和已经审阅的文档生成新清单；不要手填摘要或沿用上期清单。
+4. 检查 `release/requirements.json` 中本期标题、交付文件与需要停止提供的旧版本。根据最终 ZIP 和已经审阅的文档生成新清单；不要手填摘要或沿用上期清单。
 
 ```powershell
 python scripts/release_gate.py prepare --root . --contract release/contract.json --requirements release/requirements.json --repository Utho-meta/NTE-AuctionPilot --tag <本期标签> --archive <最终ZIP路径> --checksum <SHA256文件路径> --notes RELEASE_NOTES_<本期标签>.md --prerelease --stable-latest <仍应保留的稳定版标签>
@@ -21,7 +21,7 @@ python scripts/release_gate.py prepare --root . --contract release/contract.json
 ./scripts/publish_release.ps1 -AssetDirectory <资产目录> -PythonExecutable <Python3.13路径> -Mode publish
 ```
 
-脚本在任何上传/发布前重新执行本地 `preflight`（包含完整隐私扫描）；再核对远端首页文档，上传草稿、核对资产、发布及撤回清单明确列出的旧隐私失败版本。凭据仅从现有 Git 凭据管理器读取，不写入磁盘或日志。不能使用旧日期脚本绕过隐私检查。
+脚本在任何上传/发布前重新执行本地 `preflight`（包含完整隐私扫描）；再核对远端首页文档，上传草稿、核对资产、发布及撤回清单明确列出的旧版本。凭据仅从现有 Git 凭据管理器读取，不写入磁盘或日志。不能使用旧日期脚本绕过隐私检查。
 
 文档先于资产发布时，自动检查会因资产尚不存在而失败；发布事件和本地发布收尾会再次检查。这段时间只能称“发布中”。
 6. 发布脚本自动执行下列命令；退出码非零时立即停止，不能显示完成、继续宣布交付或使用上次记录。GitHub 也会在 main 更新、Release 发布或编辑后运行同一检查。

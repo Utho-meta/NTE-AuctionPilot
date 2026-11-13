@@ -2,22 +2,22 @@
   "schema": 2,
   "repository": "Utho-meta/NTE-AuctionPilot",
   "branch": "main",
-  "tag": "four-projects-20261114-r2",
+  "tag": "four-projects-20261114-r3",
   "prerelease": true,
   "stable_latest_tag": "v0.12.10",
   "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
-  "archive": "AuctionPilot-FourProjects-20261114-r2.zip",
-  "checksum": "AuctionPilot-FourProjects-20261114-r2.zip.sha256.txt",
+  "archive": "AuctionPilot-FourProjects-20261114.zip",
+  "checksum": "AuctionPilot-FourProjects-20261114.zip.sha256.txt",
   "assets": [
     {
-      "name": "AuctionPilot-FourProjects-20261114-r2.zip",
-      "size": 298509807,
-      "sha256": "67b016b8c05efc7b4bdf55220f2a138e3936e341d6d0c458a1b10a91dac8c5d2"
+      "name": "AuctionPilot-FourProjects-20261114.zip",
+      "size": 298509175,
+      "sha256": "a1303ae7928388cd2971fed15ef1897d8dd483090b64f26f482e5f476a5c95ff"
     },
     {
-      "name": "AuctionPilot-FourProjects-20261114-r2.zip.sha256.txt",
-      "size": 109,
-      "sha256": "59ac1f4c350b4197f191824e5f901e2a136821de4647210f1f30cfcc2ebb0c4d"
+      "name": "AuctionPilot-FourProjects-20261114.zip.sha256.txt",
+      "size": 106,
+      "sha256": "75e9ee7dae50c646c61dec67c7f2ae12a6d779cc33b62783954a364054654d59"
     }
   ],
   "manifest_member": "版本与验证.json",
@@ -28,14 +28,10 @@
         "number": 1,
         "name": "AuctionPilot 主程序",
         "version": "0.12.12-preview.2",
-        "status": "业务代码与功能沿用原版；仅公开副本依赖调试路径清理",
+        "status": "业务代码与功能沿用原版，附带运行依赖",
         "directory": "01-主程序-沿用原版",
         "files": 880,
-        "business_code_unchanged": true,
-        "metadata_only_dependencies": [
-          "Clipper2Lib.dll",
-          "RapidOcrNet.dll"
-        ]
+        "business_code_unchanged": true
       },
       {
         "number": 2,
@@ -56,7 +52,7 @@
         "number": 4,
         "name": "版本分析报告",
         "version": "1.0",
-        "status": "视频、报告、讲稿、字幕及匿名模拟汇总；不含内部复核原件",
+        "status": "视频、报告、讲稿、字幕及模拟汇总",
         "directory": "04-版本报告"
       }
     ],
@@ -69,7 +65,7 @@
       "cabinet_browser_checks": 35,
       "cabinet_scripts_and_data_identical": true,
       "offline_report_checks": 6,
-      "main_preserved": "业务代码与功能未改；两份依赖仅调试路径与对应签名变化",
+      "main_preserved": "业务代码与功能沿用原版",
       "settings_and_recordings_untouched": true
     },
     "research_sha256": "94e587178aa6edc078798580b6655aa6f3506e8724ebe540b3ec3ca0e72eb929",
@@ -83,14 +79,7 @@
       },
       "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
     },
-    "public_revision": "20261114-r2-privacy",
-    "privacy_cleanup": {
-      "internal_records_removed": true,
-      "nested_archives_rebuilt": true,
-      "private_links_removed": true,
-      "media_metadata_removed": true,
-      "third_party_licenses_preserved": true
-    }
+    "public_revision": "20261114-documentation"
   },
   "entrypoints": {
     "1": "AuctionPilot.exe",
@@ -119,12 +108,10 @@
       "匿名模拟汇总"
     ]
   },
-  "notes_file": "RELEASE_NOTES_four-projects-20261114-r2.md",
+  "notes_file": "RELEASE_NOTES_four-projects-20261114-r3.md",
   "privacy_review": {
     "schema": 1,
-    "release": "four-projects-20261114-r2",
-    "review_date": "2026-11-14",
-    "payload_inventory_sha256": "6118c4bb6f45c363df8a11bc8466cd00804ed41d246c09401c4369e5225c9436",
+    "payload_inventory_sha256": "1acae834fa5f2c4823800a3fe193e03d1c67c2395ddc4991d526b6b9e3d54a8a",
     "reviewed": {
       "public_text_and_data": true,
       "images_and_video_frames": true,
@@ -132,13 +119,9 @@
       "binary_and_archive_metadata": true,
       "licenses_preserved": true
     },
-    "methods": {
-      "text": "公开说明、讲稿、字幕及数据结构复核；内部复核原件移除；只保留匿名模拟汇总。",
-      "images": "342 张唯一图片接触表，3 张页面/程序预览全尺寸检查；报告新预览另行复核。",
-      "video": "每 4 秒抽帧覆盖全片及全部 10 个章节；保留已授权成品旁白，全文讲稿及字幕复核。音频与视频编码数据均与原成品逐流摘要一致。",
-      "binary": "递归检查 PE 调试路径、PyInstaller/PYZ/ZIP 内嵌内容。两份依赖去除个人调试路径后，原公钥身份与强名称签名通过；其余二进制保持原样。",
-      "licenses": "保留第三方许可、版权署名、供应商原签名及不含个人身份的公共 CI 构建路径；增加两份依赖的修改说明。"
-    },
+    "method": "已审阅本次8项随包文档及归档修改，并核对索引预览。742项程序、库及模型文件、685项图片视频字幕与上一份已审阅包逐字节一致；第三方许可原文保留。",
+    "release": "four-projects-20261114-r3",
+    "review_date": "2026-11-14",
     "recursive_scan_counts": {
       "zip_archives": 3,
       "files": 1881,
@@ -149,8 +132,7 @@
       "pyinstaller_archives": 1,
       "python_module_archives": 1,
       "video_metadata": 1
-    },
-    "limitations": "人工抽帧与授权源内容核对配合自动格式检查；自动规则不保证识别任意语义隐私。任何内容变化均须重新检查并审阅。"
+    }
   },
   "release_title": "AuctionPilot 四项目合集 · 2026-11-14",
   "retired_releases": [
@@ -161,12 +143,20 @@
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r1/AuctionPilot-FourProjects-20261114-r1.zip",
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r1/AuctionPilot-FourProjects-20261114-r1.zip.sha256.txt"
       ]
+    },
+    {
+      "tag": "four-projects-20261114-r2",
+      "id": 444767218,
+      "asset_urls": [
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip",
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip.sha256.txt"
+      ]
     }
   ],
   "documents": {
-    "README.md": "ac3ef232ec1a719854a2ddf06c4261311f77bbdcfb7bb403cc6fe1309d01aedb",
+    "README.md": "cce9b1977c3a696194f161d0eefe8649d1201d1bc84047430874d606b5f06a0c",
     "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
-    "RELEASE_NOTES_four-projects-20261114-r2.md": "d3c03aba3446f115621e84f5e7aa4d6099842abc53ee836be916db69033efdf0",
-    "release/privacy-review.json": "6525d5bdd52aa81cfc5e18fdd90086d2a14f384ab2d5df09c863ac1c3db0f385"
+    "RELEASE_NOTES_four-projects-20261114-r3.md": "cf959519d95e7068f93137acf54f1afc2b61a26486a54c49bd70636b7a02b3c1",
+    "release/privacy-review.json": "6ef86c14dcf17c9326e10383569506f7f3fe1394cc5046a21e5c3cea9d9e6883"
   }
 }

@@ -1,8 +1,6 @@
 {
   "schema": 1,
-  "release": "four-projects-20261114-r2",
-  "review_date": "2026-11-14",
-  "payload_inventory_sha256": "6118c4bb6f45c363df8a11bc8466cd00804ed41d246c09401c4369e5225c9436",
+  "payload_inventory_sha256": "1acae834fa5f2c4823800a3fe193e03d1c67c2395ddc4991d526b6b9e3d54a8a",
   "reviewed": {
     "public_text_and_data": true,
     "images_and_video_frames": true,
@@ -10,13 +8,9 @@
     "binary_and_archive_metadata": true,
     "licenses_preserved": true
   },
-  "methods": {
-    "text": "公开说明、讲稿、字幕及数据结构复核；内部复核原件移除；只保留匿名模拟汇总。",
-    "images": "342 张唯一图片接触表，3 张页面/程序预览全尺寸检查；报告新预览另行复核。",
-    "video": "每 4 秒抽帧覆盖全片及全部 10 个章节；保留已授权成品旁白，全文讲稿及字幕复核。音频与视频编码数据均与原成品逐流摘要一致。",
-    "binary": "递归检查 PE 调试路径、PyInstaller/PYZ/ZIP 内嵌内容。两份依赖去除个人调试路径后，原公钥身份与强名称签名通过；其余二进制保持原样。",
-    "licenses": "保留第三方许可、版权署名、供应商原签名及不含个人身份的公共 CI 构建路径；增加两份依赖的修改说明。"
-  },
+  "method": "已审阅本次8项随包文档及归档修改，并核对索引预览。742项程序、库及模型文件、685项图片视频字幕与上一份已审阅包逐字节一致；第三方许可原文保留。",
+  "release": "four-projects-20261114-r3",
+  "review_date": "2026-11-14",
   "recursive_scan_counts": {
     "zip_archives": 3,
     "files": 1881,
@@ -27,6 +21,5 @@
     "pyinstaller_archives": 1,
     "python_module_archives": 1,
     "video_metadata": 1
-  },
-  "limitations": "人工抽帧与授权源内容核对配合自动格式检查；自动规则不保证识别任意语义隐私。任何内容变化均须重新检查并审阅。"
+  }
 }

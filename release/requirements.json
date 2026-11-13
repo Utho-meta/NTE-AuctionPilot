@@ -36,6 +36,14 @@
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r1/AuctionPilot-FourProjects-20261114-r1.zip",
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r1/AuctionPilot-FourProjects-20261114-r1.zip.sha256.txt"
       ]
+    },
+    {
+      "tag": "four-projects-20261114-r2",
+      "id": 444767218,
+      "asset_urls": [
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip",
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip.sha256.txt"
+      ]
     }
   ]
 }

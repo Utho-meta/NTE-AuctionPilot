@@ -276,7 +276,7 @@ def verify(args, http=None):
                 except urllib.error.HTTPError as error:
                     require(error.code in (404, 410), "Cannot confirm retired release removal")
                 else:
-                    raise GateError("Retired privacy-failing release is still public: " + old["tag"])
+                    raise GateError("Retired release is still public: " + old["tag"])
                 retired_checked.append(url)
         require(before["commit"] == commit, "Reviewed commit is not current remote main")
         require(before["default_branch"] == contract["branch"], "Homepage uses a different branch")

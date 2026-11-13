@@ -8,11 +8,11 @@
 
 **2026-11-14 四项目合集**
 
-- **[下载最新四项目完整包（约 299 MB）](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip)**
-- [查看本期发布说明](https://github.com/Utho-meta/NTE-AuctionPilot/releases/tag/four-projects-20261114-r2)
-- [下载 SHA-256 校验文件](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip.sha256.txt)
+- **[下载最新四项目完整包（约 299 MB）](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r3/AuctionPilot-FourProjects-20261114.zip)**
+- [查看本期发布说明](https://github.com/Utho-meta/NTE-AuctionPilot/releases/tag/four-projects-20261114-r3)
+- [下载 SHA-256 校验文件](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r3/AuctionPilot-FourProjects-20261114.zip.sha256.txt)
 
-请下载文件名为 `AuctionPilot-FourProjects-20261114-r2.zip` 的运行包。发布页自动显示的 `Source code` 是仓库文档快照，不包含四项目运行文件。
+请下载文件名为 `AuctionPilot-FourProjects-20261114.zip` 的运行包。发布页自动显示的 `Source code` 是仓库文档快照，不包含四项目运行文件。
 
 合集保留程序原有的 **Preview** 版本号，按预发布提供。上方直链指向最新四项目合集；GitHub 的 `/releases/latest` 仍指向主程序稳定版 v0.12.10。
 
@@ -23,10 +23,10 @@
 | 03 · 展柜搭配实验室 | v0.4 Preview3 | 39 件红藏品、三种推荐方案及报告入口 | `03-展柜搭配实验室/展柜搭配实验室.html` |
 | 04 · 版本分析报告 | v1.0 | 真珠与珊瑚的讲解视频、分析文档和匿名汇总 | `04-版本报告/index.html` |
 
-ZIP 大小为 **298,509,807 字节**，SHA-256：
+ZIP 大小为 **298,509,175 字节**，SHA-256：
 
 ```text
-67b016b8c05efc7b4bdf55220f2a138e3936e341d6d0c458a1b10a91dac8c5d2
+a1303ae7928388cd2971fed15ef1897d8dd483090b64f26f482e5f476a5c95ff
 ```
 
 ## 开始使用

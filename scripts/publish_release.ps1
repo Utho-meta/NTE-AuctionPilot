@@ -89,13 +89,13 @@ try{
     if($Mode -eq 'publish'){
         if($release.draft){$release=Invoke-RestMethod -Uri "$api/releases/$($release.id)" -Method Patch -Headers $headers -ContentType 'application/json; charset=utf-8' -Body (Payload @{draft=$false;prerelease=$contract.prerelease;make_latest='false'})}
         Save-State $release
-        # Only explicitly enumerated, known unsafe releases may be withdrawn.
+        # Only explicitly enumerated superseded releases may be withdrawn.
         foreach($old in $contract.retired_releases){
             $previous=Invoke-RestMethod -Uri "$api/releases/$($old.id)" -Headers $headers
             if($previous.tag_name -ne $old.tag){throw 'Retired release identity differs'}
             if(-not $previous.draft){
                 $previous=Invoke-RestMethod -Uri "$api/releases/$($old.id)" -Method Patch -Headers $headers -ContentType 'application/json; charset=utf-8' -Body (Payload @{draft=$true;make_latest='false'})
-                if(-not $previous.draft){throw 'Unsafe release was not withdrawn'}
+                if(-not $previous.draft){throw 'Superseded release was not withdrawn'}
             }
         }
     }
