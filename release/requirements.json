@@ -12,10 +12,31 @@
   ],
   "required_terms": {
     "README.md": [
-      "## 最新下载", "## 开始使用", "## 历史稳定版下载",
-      "首次打开时库存和展柜均为空", "日常装桌宠", "全部出售、不计展柜",
-      "本次未修改主程序", "不等于长期实战验证"
+      "## 最新下载",
+      "## 开始使用",
+      "## 历史稳定版下载",
+      "首次打开时库存和展柜均为空",
+      "日常装桌宠",
+      "全部出售、不计展柜",
+      "主程序业务代码未改",
+      "不等于长期实战验证"
     ],
-    "PRIVACY.md": ["研究"]
-  }
+    "PRIVACY.md": [
+      "嵌套",
+      "人工",
+      "内容清单摘要",
+      "r1 下载已撤回"
+    ]
+  },
+  "release_title": "AuctionPilot 四项目合集 · 2026-11-14（r2 隐私清理版）",
+  "retired_releases": [
+    {
+      "tag": "four-projects-20261114-r1",
+      "id": 444605240,
+      "asset_urls": [
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r1/AuctionPilot-FourProjects-20261114-r1.zip",
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r1/AuctionPilot-FourProjects-20261114-r1.zip.sha256.txt"
+      ]
+    }
+  ]
 }

@@ -24,9 +24,16 @@ jobs:
           # Release tags can point to older documentation; inspect the live homepage branch.
           ref: main
           persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install media metadata inspector
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
       - name: Test failure detection
         run: python3 -m unittest discover -s tests -v
-      - name: Verify homepage, release notes and fresh public downloads
+      - name: Verify homepage, release notes, privacy and fresh public downloads
         env:
           RELEASE_EVENT_TAG: ${{ github.event.release.tag_name || '' }}
         run: python3 scripts/release_gate.py verify --receipt release-verification.json
@@ -52,4 +59,5 @@ jobs:
                       f.write(f'- {key}: {r[key]}\n')
               if r['passed']:
                   f.write('- Homepage, About, release notes, links and fresh package download all match.\n')
+                  f.write('- Recursive archive, binary/media metadata and content-bound privacy review passed.\n')
           PY

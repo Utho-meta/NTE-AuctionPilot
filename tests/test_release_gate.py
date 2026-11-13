@@ -68,6 +68,7 @@ class ReleaseGateTests(unittest.TestCase):
         cls.root = Path(cls.directory.name)
         (cls.root / "scripts").mkdir()
         shutil.copyfile(SOURCE, cls.root / "scripts/release_gate.py")
+        shutil.copyfile(SOURCE.with_name("privacy_gate.py"), cls.root / "scripts/privacy_gate.py")
         manifest = {"projects": [{"number": n, "name": f"Project {n}", "directory": f"0{n}-project", "version": f"{n}.0-preview.1"}
                                   for n in range(1, 5)]}
         archive = cls.root / "suite.zip"
@@ -75,7 +76,7 @@ class ReleaseGateTests(unittest.TestCase):
             z.writestr("suite/版本与验证.json", json.dumps(manifest))
             for p in manifest["projects"]:
                 z.writestr("suite/" + p["directory"] + "/start.html", "entry")
-            z.writestr("suite/report.mp4", "video")
+            z.writestr("suite/report.txt", "public report")
         hash_value = gate.file_digest(archive)
         checksum = cls.root / "suite.zip.sha256.txt"
         checksum.write_text(hash_value + "  suite.zip\n")
@@ -92,9 +93,12 @@ class ReleaseGateTests(unittest.TestCase):
         readme += "## 历史稳定版下载\n[old](https://github.com/test/project/releases/tag/stable)\n"
         for name, text in {"README.md": readme, "PRIVACY.md": "研究", "RELEASE_NOTES_test-v1.md": body}.items():
             (cls.root / name).write_text(text, encoding="utf-8")
-        requirements = {"repository_description": "Four projects", "entrypoints": {str(n): "start.html" for n in range(1, 5)},
-                        "required_paths": ["report.mp4"], "required_terms": {"PRIVACY.md": ["研究"]}}
+        requirements = {"repository_description": "Four projects", "release_title": "Four projects", "entrypoints": {str(n): "start.html" for n in range(1, 5)},
+                        "required_paths": ["report.txt"], "required_terms": {"PRIVACY.md": ["研究"]}}
         gate.write_json(cls.root / "requirements.json", requirements)
+        review = {"payload_inventory_sha256": gate.scan_archive(archive)["payload_inventory_sha256"],
+                  "reviewed": {topic: True for topic in ("public_text_and_data", "images_and_video_frames", "spoken_audio_and_subtitles", "binary_and_archive_metadata", "licenses_preserved")}}
+        gate.write_json(cls.root / "release/privacy-review.json", review)
         args = argparse.Namespace(root=str(cls.root), requirements=str(cls.root / "requirements.json"),
                                   archive=str(archive), checksum=str(checksum), repository="test/project", tag="test-v1",
                                   stable_latest="stable", notes="RELEASE_NOTES_test-v1.md", prerelease=True,
@@ -106,7 +110,7 @@ class ReleaseGateTests(unittest.TestCase):
                         "commit", "-qm", "fixture"], check=True)
         cls.contract = gate.read_json(cls.root / "release/contract.json")
         cls.documents = {n: (cls.root / n).read_text(encoding="utf-8") for n in
-                         list(cls.contract["documents"]) + ["release/contract.json", "scripts/release_gate.py"]}
+                         list(cls.contract["documents"]) + ["release/contract.json", "scripts/release_gate.py", "scripts/privacy_gate.py"]}
         cls.state = {"commit": gate.git(cls.root, "rev-parse", "HEAD"), "about": "Four projects", "default_branch": "main",
                      "release": {"id": 1, "tag_name": "test-v1", "target_commitish": "original-tag-commit",
                                  "body": body, "draft": False, "prerelease": True},
@@ -203,6 +207,29 @@ class ReleaseGateTests(unittest.TestCase):
         contract["required_paths"] = ["missing-video.mp4"]
         with self.assertRaisesRegex(gate.GateError, "Missing deliverable"):
             gate.check_archive(self.root / "suite.zip", contract)
+
+    def test_nested_privacy_failure_blocks_otherwise_valid_package(self):
+        import io
+        nested = io.BytesIO()
+        with zipfile.ZipFile(nested, "w") as z:
+            z.writestr("record.txt", "C:\\Users\\PrivatePerson\\notes")
+        target = self.root / "leaking.zip"
+        with zipfile.ZipFile(self.root / "suite.zip") as source, zipfile.ZipFile(target, "w") as output:
+            for name in source.namelist():
+                output.writestr(name, source.read(name))
+            output.writestr("suite/data.zip", nested.getvalue())
+        with self.assertRaisesRegex(RuntimeError, "Privacy scan failed"):
+            gate.check_archive(target, self.contract)
+
+    def test_retired_release_still_public_blocks_completion(self):
+        contract = copy.deepcopy(self.contract)
+        contract["retired_releases"] = [{"tag": "old-leak", "asset_urls": ["https://example.invalid/old.zip"]}]
+        path = self.root / "release/retired-test.json"
+        gate.write_json(path, contract)
+        # Verify the retirement condition independently of the tracked-input guard.
+        original_read = gate.read_json
+        with patch.object(gate, "read_json", side_effect=lambda path: contract if Path(path) == Path(self.args.contract) else original_read(path)), patch.object(gate, "git", side_effect=lambda root,*a: self.state["commit"] if a == ("rev-parse", "HEAD") else ""):
+            self.reject("still public")
 
     def test_unexpected_asset(self):
         self.http.state["assets"].append(dict(self.http.state["assets"][0]))

@@ -9,12 +9,15 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+import sys
 import tempfile
 from datetime import datetime, timezone
 import urllib.parse
 import urllib.request
 import uuid
 import zipfile
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from privacy_gate import scan_archive, require_review
 
 
 class GateError(RuntimeError):
@@ -130,8 +133,11 @@ def check_archive(path, contract):
         for entry in contract["required_paths"]:
             require(prefix + entry in names and archive.getinfo(prefix + entry).file_size > 0,
                     "Missing deliverable: " + entry)
-        return {"entries": len(names), "crc_passed": True, "manifest_matches": True,
-                "project_count": len(actual["projects"]), "required_paths_passed": True}
+        result = {"entries": len(names), "crc_passed": True, "manifest_matches": True,
+                  "project_count": len(actual["projects"]), "required_paths_passed": True}
+    require("privacy_review" in contract, "Missing current privacy review")
+    result["privacy"] = require_review(scan_archive(path), contract["privacy_review"])
+    return result
 
 
 def prepare(args):
@@ -148,19 +154,45 @@ def prepare(args):
     archive_name = assets[0]["name"]
     require(Path(args.checksum).read_text(encoding="utf-8-sig").strip() == assets[0]["sha256"] + "  " + archive_name,
             "Checksum file does not match archive")
+    review_file = getattr(args, "privacy_review", "release/privacy-review.json")
+    review = read_json(root / review_file)
     documents = {name: (root / name).read_text(encoding="utf-8-sig")
-                 for name in ["README.md", "PRIVACY.md", args.notes]}
-    contract = {"schema": 1, "repository": args.repository, "branch": "main", "tag": args.tag,
+                 for name in ["README.md", "PRIVACY.md", args.notes, review_file]}
+    contract = {"schema": 2, "repository": args.repository, "branch": "main", "tag": args.tag,
                 "prerelease": args.prerelease, "stable_latest_tag": args.stable_latest,
                 "repository_description": requirements["repository_description"], "archive": archive_name,
                 "checksum": assets[1]["name"], "assets": assets, "manifest_member": member,
                 "manifest": manifest, "entrypoints": requirements["entrypoints"],
                 "required_paths": requirements["required_paths"], "required_terms": requirements["required_terms"],
-                "notes_file": args.notes, "documents": {n: text_digest(t) for n, t in documents.items()}}
+                "notes_file": args.notes, "privacy_review": review,
+                "release_title": requirements["release_title"],
+                "retired_releases": requirements.get("retired_releases", []),
+                "documents": {n: text_digest(t) for n, t in documents.items()}}
     check_text(contract, documents, documents[args.notes])
     check_archive(args.archive, contract)
     write_json(args.contract, contract)
     print("PREPARED release contract for " + args.tag, flush=True)
+
+
+def preflight(args):
+    """Mandatory local check immediately before any draft upload/publication."""
+    root = Path(args.root).resolve()
+    contract = read_json(args.contract)
+    require(contract.get("schema") == 2, "Privacy-enabled contract required")
+    directory = Path(args.assets).resolve()
+    for asset in contract["assets"]:
+        target = directory / asset["name"]
+        require(target.parent == directory, "Unsafe asset path")
+        require(target.stat().st_size == asset["size"] and file_digest(target) == asset["sha256"],
+                "Local asset changed: " + asset["name"])
+    documents = {name: (root / name).read_text(encoding="utf-8-sig") for name in contract["documents"]}
+    for name, expected in contract["documents"].items():
+        require(text_digest(documents[name]) == expected, "Local document changed: " + name)
+    check_text(contract, documents, documents[contract["notes_file"]])
+    result = check_archive(directory / contract["archive"], contract)
+    write_json(args.receipt, {"passed": True, "stage": "local_preflight_only", "tag": contract["tag"],
+                            "archive": result, "archive_sha256": file_digest(directory / contract["archive"])})
+    print("LOCAL PREFLIGHT PASSED; publication and fresh public verification still required", flush=True)
 
 
 class PublicHTTP:
@@ -218,12 +250,13 @@ def verify(args, http=None):
         root = Path(args.root).resolve()
         contract_path = Path(args.contract).resolve()
         contract = read_json(contract_path)
-        require(contract["schema"] == 1, "Unsupported contract schema")
+        require(contract["schema"] == 2, "Unsupported contract schema; privacy review is mandatory")
         require(len(contract["manifest"]["projects"]) == 4, "Expected four projects")
         event_tag = os.environ.get("RELEASE_EVENT_TAG")
-        require(not event_tag or event_tag == contract["tag"], "Release event tag differs from current contract")
+        retired_tags = {r["tag"] for r in contract.get("retired_releases", [])}
+        require(not event_tag or event_tag == contract["tag"] or event_tag in retired_tags, "Release event tag differs from current contract")
         commit = git(root, "rev-parse", "HEAD")
-        tracked = list(contract["documents"]) + [contract_path.relative_to(root).as_posix(), "scripts/release_gate.py"]
+        tracked = list(contract["documents"]) + [contract_path.relative_to(root).as_posix(), "scripts/release_gate.py", "scripts/privacy_gate.py"]
         require(not git(root, "status", "--porcelain", "--", *tracked), "Commit release inputs before verification")
         for name in tracked:
             git(root, "ls-files", "--error-unmatch", "--", name)
@@ -234,6 +267,17 @@ def verify(args, http=None):
         base, release_url, asset_urls = urls(contract)
         receipt["stage"] = "remote_documents"
         before = snapshot(http, api, contract)
+        retired_checked = []
+        for old in contract.get("retired_releases", []):
+            # A superseded leaking asset must not remain anonymously downloadable.
+            for url in [api + "/releases/tags/" + old["tag"]] + old["asset_urls"]:
+                try:
+                    http.head(url)
+                except urllib.error.HTTPError as error:
+                    require(error.code in (404, 410), "Cannot confirm retired release removal")
+                else:
+                    raise GateError("Retired privacy-failing release is still public: " + old["tag"])
+                retired_checked.append(url)
         require(before["commit"] == commit, "Reviewed commit is not current remote main")
         require(before["default_branch"] == contract["branch"], "Homepage uses a different branch")
         require(before["about"] == contract["repository_description"], "GitHub About is stale")
@@ -296,6 +340,8 @@ def verify(args, http=None):
                        homepage_verified=True, about_verified=True, release_notes_verified=True,
                        documents=list(documents), public_pages_checked=2, links=checked_links,
                        fresh_downloads=downloads, archive=zip_result, remote=before)
+        receipt["privacy_verified"] = zip_result["privacy"]["passed"] and zip_result["privacy"]["human_review_matches"]
+        receipt["retired_downloads_checked"] = retired_checked
         write_json(receipt_path, receipt)
         print("RELEASE COMPLETE: " + contract["tag"] + " — verified receipt: " + str(receipt_path), flush=True)
         return receipt
@@ -312,14 +358,24 @@ def main():
     for name in ("archive", "checksum", "requirements", "repository", "tag", "stable-latest", "notes"):
         p.add_argument("--" + name, required=True)
     p.add_argument("--prerelease", action="store_true")
+    p.add_argument("--privacy-review", default="release/privacy-review.json")
     v = commands.add_parser("verify", help="Verify live GitHub and fresh anonymous download; fail closed")
     v.add_argument("--receipt", default="release-verification.json")
-    for sub in (p, v):
+    l = commands.add_parser("preflight", help="Inspect exact local assets before upload or publication")
+    l.add_argument("--assets", required=True)
+    l.add_argument("--receipt", default="local-preflight.json")
+    for sub in (p, v, l):
         sub.add_argument("--root", default=".")
         sub.add_argument("--contract", default="release/contract.json")
     args = parser.parse_args()
     try:
-        prepare(args) if args.command == "prepare" else verify(args)
+        if args.command == "preflight":
+            write_json(args.receipt, {"passed": False, "stage": "local_preflight_started"})
+            preflight(args)
+        elif args.command == "prepare":
+            prepare(args)
+        else:
+            verify(args)
     except Exception as error:
         parser.exit(1, "RELEASE INCOMPLETE: " + str(error) + "\n")
 
