@@ -12,6 +12,8 @@
 - [查看本期发布说明](https://github.com/Utho-meta/NTE-AuctionPilot/releases/tag/four-projects-20261114-r1)
 - [下载 SHA-256 校验文件](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r1/AuctionPilot-FourProjects-20261114-r1.zip.sha256.txt)
 
+请下载文件名为 `AuctionPilot-FourProjects-20261114-r1.zip` 的运行包。发布页自动显示的 `Source code` 是仓库文档快照，不包含四项目运行文件。
+
 合集保留程序原有的 **Preview** 版本号，按预发布提供。上方直链指向最新四项目合集；GitHub 的 `/releases/latest` 仍指向主程序稳定版 v0.12.10。
 
 | 项目 | 合集版本 | 本期内容 | 解压后的入口 |
