@@ -22,13 +22,12 @@
       "不等于长期实战验证"
     ],
     "PRIVACY.md": [
-      "嵌套",
-      "人工",
-      "内容清单摘要",
-      "r1 下载已撤回"
+      "本地存储",
+      "不会自动上传",
+      "匿名模拟汇总"
     ]
   },
-  "release_title": "AuctionPilot 四项目合集 · 2026-11-14（r2 隐私清理版）",
+  "release_title": "AuctionPilot 四项目合集 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",

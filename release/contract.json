@@ -114,10 +114,9 @@
       "不等于长期实战验证"
     ],
     "PRIVACY.md": [
-      "嵌套",
-      "人工",
-      "内容清单摘要",
-      "r1 下载已撤回"
+      "本地存储",
+      "不会自动上传",
+      "匿名模拟汇总"
     ]
   },
   "notes_file": "RELEASE_NOTES_four-projects-20261114-r2.md",
@@ -153,7 +152,7 @@
     },
     "limitations": "人工抽帧与授权源内容核对配合自动格式检查；自动规则不保证识别任意语义隐私。任何内容变化均须重新检查并审阅。"
   },
-  "release_title": "AuctionPilot 四项目合集 · 2026-11-14（r2 隐私清理版）",
+  "release_title": "AuctionPilot 四项目合集 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -165,9 +164,9 @@
     }
   ],
   "documents": {
-    "README.md": "bce55518585c2d03bb8098c90879eb7e719a1dae98ae5e7dab2d61166bf1d5f8",
-    "PRIVACY.md": "c56f85892dd3e531c86282153e9379951166bab9f7a57f2d604851fe71e27010",
-    "RELEASE_NOTES_four-projects-20261114-r2.md": "edb0ee69c1a0b3a680268a1c385cd671c762116fa335a2008dc365809fbfeaaa",
+    "README.md": "ac3ef232ec1a719854a2ddf06c4261311f77bbdcfb7bb403cc6fe1309d01aedb",
+    "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
+    "RELEASE_NOTES_four-projects-20261114-r2.md": "d3c03aba3446f115621e84f5e7aa4d6099842abc53ee836be916db69033efdf0",
     "release/privacy-review.json": "6525d5bdd52aa81cfc5e18fdd90086d2a14f384ab2d5df09c863ac1c3db0f385"
   }
 }

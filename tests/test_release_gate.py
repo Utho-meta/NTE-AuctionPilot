@@ -112,7 +112,7 @@ class ReleaseGateTests(unittest.TestCase):
         cls.documents = {n: (cls.root / n).read_text(encoding="utf-8") for n in
                          list(cls.contract["documents"]) + ["release/contract.json", "scripts/release_gate.py", "scripts/privacy_gate.py"]}
         cls.state = {"commit": gate.git(cls.root, "rev-parse", "HEAD"), "about": "Four projects", "default_branch": "main",
-                     "release": {"id": 1, "tag_name": "test-v1", "target_commitish": "original-tag-commit",
+                     "release": {"id": 1, "name": "Four projects", "tag_name": "test-v1", "target_commitish": "original-tag-commit",
                                  "body": body, "draft": False, "prerelease": True},
                      "assets": [{"id": i, "name": a["name"], "size": a["size"], "digest": "sha256:" + a["sha256"],
                                  "browser_download_url": download + a["name"]} for i, a in enumerate(cls.contract["assets"])],
@@ -161,6 +161,10 @@ class ReleaseGateTests(unittest.TestCase):
     def test_release_notes_diverged(self):
         self.http.state["release"]["body"] += "extra old text"
         self.reject("Release body differs")
+
+    def test_stale_release_title(self):
+        self.http.state["release"]["name"] = "Obsolete title"
+        self.reject("Release title differs")
 
     def test_stale_project_version_rejected_even_when_preparing_new_contract(self):
         documents = dict(self.documents)

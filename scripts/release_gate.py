@@ -232,7 +232,7 @@ def snapshot(http, api, contract):
     latest = http.json(api + "/releases/latest")
     # Ignore counters such as download_count; bind all release content and asset identities.
     identity = {"commit": head, "about": repo["description"], "default_branch": repo["default_branch"],
-                "release": {k: release[k] for k in ("id", "tag_name", "target_commitish", "body", "draft", "prerelease")},
+                "release": {k: release[k] for k in ("id", "name", "tag_name", "target_commitish", "body", "draft", "prerelease")},
                 "assets": sorted([{k: a[k] for k in ("id", "name", "size", "digest", "browser_download_url")}
                                   for a in release["assets"]], key=lambda a: a["name"]),
                 "latest": {"id": latest["id"], "tag_name": latest["tag_name"]}}
@@ -283,6 +283,7 @@ def verify(args, http=None):
         require(before["about"] == contract["repository_description"], "GitHub About is stale")
         require(before["latest"]["tag_name"] == contract["stable_latest_tag"], "Stable latest marker differs")
         release = before["release"]
+        require(release["name"] == contract["release_title"], "Release title differs from current contract")
         require(not release["draft"] and release["prerelease"] == contract["prerelease"], "Release status differs")
         documents = {}
         # The published contract must be the same input as this run, not an unpushed plan.
