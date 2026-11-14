@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "payload_inventory_sha256": "30acf7b622154e9e7ede6e1c7f2f1f7ffedbb3981668ab655d03fb6a70164fbf",
+  "payload_inventory_sha256": "204b2107fde8984beb6969b504edaa710c43c6b6d9c372fb494bc277ebda0edd",
   "reviewed": {
     "public_text_and_data": true,
     "images_and_video_frames": true,
@@ -8,14 +8,14 @@
     "binary_and_archive_metadata": true,
     "licenses_preserved": true
   },
-  "method": "审阅仪器适配及空金品修正说明、匿名检查摘要、测试生成的桌宠报价与交互预览、演示视频、首页、索引、版本清单和嵌套阅读说明。主程序、图鉴贴图、展柜、原有音效与研究视频沿用已审阅的相同文件。新程序载荷仅改模拟器的桌宠证据和耗材适配，包含公开藏品类别映射，已递归检查二进制和归档元数据；未包含个人对局、设置、内部诊断记录或参考声音原件。第三方许可保留。",
-  "release": "four-projects-20261114-r10",
-  "review_date": "2026-11-14",
+  "method": "审阅报价输入与动画衔接说明、标明历史版本的仪器检查摘要、测试生成的金额输入与切轮预览、演示视频、首页、索引、版本清单和嵌套阅读说明。主程序、图鉴贴图、展柜、原有音效与研究视频沿用已审阅的相同文件。新程序载荷仅改模拟器的报价输入与动画收尾，已递归检查二进制和归档元数据；未包含个人对局、设置、内部诊断记录或参考声音原件。第三方许可保留。",
+  "release": "four-projects-20261115-r1",
+  "review_date": "2026-11-15",
   "recursive_scan_counts": {
     "zip_archives": 3,
-    "files": 2127,
+    "files": 2129,
     "pe_files": 793,
-    "png_images": 957,
+    "png_images": 959,
     "text_files": 79,
     "debug_records": 813,
     "pyinstaller_archives": 1,
