@@ -2,22 +2,22 @@
   "schema": 2,
   "repository": "Utho-meta/NTE-AuctionPilot",
   "branch": "main",
-  "tag": "four-projects-20261114-r8",
+  "tag": "four-projects-20261114-r9",
   "prerelease": true,
   "stable_latest_tag": "v0.12.10",
   "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
-  "archive": "AuctionPilot-FourProjects-20261114-Preview11.zip",
-  "checksum": "AuctionPilot-FourProjects-20261114-Preview11.zip.sha256.txt",
+  "archive": "AuctionPilot-FourProjects-20261114-Preview12.zip",
+  "checksum": "AuctionPilot-FourProjects-20261114-Preview12.zip.sha256.txt",
   "assets": [
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview11.zip",
-      "size": 304498364,
-      "sha256": "fa9e1437dc03f23e6492c0f8d9b9ac8dbdcb8009f5a49dfa48284eaf44abfda9"
+      "name": "AuctionPilot-FourProjects-20261114-Preview12.zip",
+      "size": 304620770,
+      "sha256": "88e0c1dfd881cc94aa12b0009a8a3549e925fbe9d405ebd803c7d9b55831dde2"
     },
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview11.zip.sha256.txt",
+      "name": "AuctionPilot-FourProjects-20261114-Preview12.zip.sha256.txt",
       "size": 116,
-      "sha256": "2673106e41b2a7b32984be0e23a8207d58dd061ffa40042f2c694368ed2b0277"
+      "sha256": "9fad72b4d6e72fa4d74e99c5b58ade8bcca4eef5008ac253b1f9a44262ae64a8"
     }
   ],
   "manifest_member": "版本与验证.json",
@@ -36,8 +36,8 @@
       {
         "number": 2,
         "name": "Arena 模拟器",
-        "version": "0.4.0-preview.11",
-        "status": "均价统一截断取整，修复由取整差异导致的桌宠报价中断",
+        "version": "0.4.0-preview.12",
+        "status": "修复仅用品质仪器时桌宠普通估价为空；模拟引擎保持Preview11",
         "directory": "02-Arena模拟器",
         "strategy_revision": "20261113-complete"
       },
@@ -56,12 +56,12 @@
         "directory": "04-版本报告"
       }
     ],
-    "scope": "报告保留2026-11-13、Arena Preview5冻结模型的历史结果。当前模拟器已更正M1000尺寸和均价取整，可能影响估值及竞拍结果；尚未按这些修正重跑角色定榜，历史名次不作为本版重新验证的结论。",
+    "scope": "报告保留2026-11-13、Arena Preview5冻结模型的历史结果。当前模拟器已更正M1000尺寸和均价取整，可能影响估值及竞拍结果；尚未按这些修正重跑角色定榜，历史名次不作为本版重新验证的结论。本次只修正桌宠可见信息转换，模拟竞价引擎保持Preview11原版。",
     "verification": {
       "cabinet_scripts_and_data_identical": true,
       "main_preserved": "业务代码与功能沿用原版",
       "settings_and_recordings_untouched": true,
-      "arena_interaction_checks": 1715,
+      "arena_interaction_checks": 1885,
       "arena_self_contained_launch": true,
       "arena_pet_reference_states": 200,
       "arena_catalog_correction": "M1000: 3x3, 9 cells",
@@ -71,7 +71,10 @@
       "arena_average_full_games": 32,
       "arena_average_pet_quotes": 32,
       "arena_old_rounding_failures_recovered": 3,
-      "main_runtime_and_pet_code_unchanged": true
+      "main_runtime_and_pet_code_unchanged": true,
+      "arena_quality_first_cases": 40,
+      "arena_quality_first_missing_estimates_recovered": 6,
+      "arena_engine_unchanged_since_preview11": true
     },
     "research_sha256": "94e587178aa6edc078798580b6655aa6f3506e8724ebe540b3ec3ca0e72eb929",
     "frozen_selection_sha256": "4b92bd654e0580e103fa851e5501374392a38a0e1156a7cc205fb5ce33059dec",
@@ -84,15 +87,15 @@
       },
       "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
     },
-    "public_revision": "20261114-arena-preview11",
+    "public_revision": "20261114-arena-preview12",
     "interaction_revision": {
-      "version": "0.4.0-preview.11",
+      "version": "0.4.0-preview.12",
       "research_basis": "2026-11-13",
       "rankings_recomputed": false,
       "changes": [
-        "品质均价、二格/九格均价及拍卖师公开均价统一舍去小数，与主程序现有规则一致。",
-        "修复取整不一致导致达夫蒂尔桌宠误判无解、两档报价为空的问题；真实矛盾信息仍会暂停报价。",
-        "同步更正模拟器按件数与均价反推总价的区间；无对应藏品时读数为0，单件与整除情况保持准确。"
+        "修复第一轮仅用品质仪器时，桌宠普通估价仍显示“待扫描”的问题。",
+        "桌宠按主程序现有规则使用可见品质色块的位置估计仓深；色块仍为未知形状，不读取隐藏尺寸、身份或真实仓价。",
+        "普通估价与达夫蒂尔专用报价独立判断：未读紫总数时显示普通估价，达夫两档报价继续等待所需信息。"
       ]
     },
     "historical_verification": {
@@ -136,10 +139,10 @@
       "匿名模拟汇总"
     ]
   },
-  "notes_file": "RELEASE_NOTES_four-projects-20261114-r8.md",
+  "notes_file": "RELEASE_NOTES_four-projects-20261114-r9.md",
   "privacy_review": {
     "schema": 1,
-    "payload_inventory_sha256": "f3307786dad0803b3b2632ab400cbe24c1d67aa5a956ca744a04d28f85d7b9d4",
+    "payload_inventory_sha256": "6dd7229d59dd1079a9ce134382c15015996e752bdeaf3f18895c3e4cf9d12b93",
     "reviewed": {
       "public_text_and_data": true,
       "images_and_video_frames": true,
@@ -147,8 +150,8 @@
       "binary_and_archive_metadata": true,
       "licenses_preserved": true
     },
-    "method": "审阅均价修正说明、测试生成的桌宠报价与交互预览、演示视频、首页、索引、版本清单和嵌套阅读说明。主程序、图鉴贴图、展柜、原有音效与研究视频沿用已审阅的相同文件。新程序载荷仅改均价读数及对应区间，已递归检查二进制和归档元数据；未包含个人对局、设置、内部诊断记录或参考声音原件。第三方许可保留。",
-    "release": "four-projects-20261114-r8",
+    "method": "审阅品质开局修正说明、测试生成的桌宠普通估价与交互预览、演示视频、首页、索引、版本清单和嵌套阅读说明。主程序、图鉴贴图、展柜、原有音效与研究视频沿用已审阅的相同文件。新程序载荷仅改桌宠可见色块的位置转换，已递归检查二进制和归档元数据；未包含个人对局、设置、内部诊断记录或参考声音原件。第三方许可保留。",
+    "release": "four-projects-20261114-r9",
     "review_date": "2026-11-14",
     "recursive_scan_counts": {
       "zip_archives": 3,
@@ -162,7 +165,7 @@
       "video_metadata": 2
     }
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview11 · 2026-11-14",
+  "release_title": "AuctionPilot 四项目合集 · Arena Preview12 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -190,9 +193,9 @@
     }
   ],
   "documents": {
-    "README.md": "033f6fe02e4d42e2acee720772e3fe0af5834f0890b090c0f7d019a0fac102cb",
+    "README.md": "5b963733ccc2672c2cc63cfcec96f45eca8045e677af80839a1fd01aefa5979e",
     "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
-    "RELEASE_NOTES_four-projects-20261114-r8.md": "940ae978eee797ef2db81f4a0b27d8f6c5755c422c44c41fe4bc5f32aafaae72",
-    "release/privacy-review.json": "b24c743ba501379ba823942359a77781b09d5b7e24bb0ff4816777d097190055"
+    "RELEASE_NOTES_four-projects-20261114-r9.md": "dbc1a1be7d8ec2c02a4c1efcf7168e2397cbcaa4ea62e0929b041ef97bb97b57",
+    "release/privacy-review.json": "81ed43fa5d0b7c0ebeb1d36e86feca20936fb81cf78be4ce874928f1594e018e"
   }
 }
