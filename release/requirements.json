@@ -11,7 +11,9 @@
     "04-版本报告/视频/真珠与珊瑚-日常装桌宠讲解.mp4",
     "02-Arena模拟器/更新说明.html",
     "02-Arena模拟器/交互演示.mp4",
-    "02-Arena模拟器/Data/WarehouseTextures/textures.json"
+    "02-Arena模拟器/Data/WarehouseTextures/textures.json",
+    "02-Arena模拟器/已知信息预览.png",
+    "02-Arena模拟器/桌宠内容预览.png"
   ],
   "required_terms": {
     "README.md": [
@@ -30,7 +32,7 @@
       "匿名模拟汇总"
     ]
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview7 · 2026-11-14",
+  "release_title": "AuctionPilot 四项目合集 · Arena Preview8 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",

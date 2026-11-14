@@ -4,6 +4,8 @@ import base64
 import copy
 import importlib.util
 import json
+import io
+import hashlib
 import os
 from pathlib import Path
 import shutil
@@ -62,6 +64,34 @@ class FixtureHTTP:
 
 
 class ReleaseGateTests(unittest.TestCase):
+    def checksum_archive(self, data=b"current", relative="item.txt", digest=None, nested=False):
+        stream = io.BytesIO()
+        with zipfile.ZipFile(stream, "w") as z:
+            z.writestr("project/item.txt", data)
+            z.writestr("project/SHA256SUMS.txt", (digest or hashlib.sha256(data).hexdigest()) + "  " + relative + "\n")
+        if nested:
+            outer = io.BytesIO()
+            with zipfile.ZipFile(outer, "w") as z: z.writestr("report.zip", stream.getvalue())
+            stream = outer
+        stream.seek(0)
+        return zipfile.ZipFile(stream)
+
+    def test_internal_checksum_matches_nested_payload(self):
+        with self.checksum_archive(nested=True) as z:
+            self.assertEqual(gate.check_internal_checksums(z), {"manifests": 1, "files": 1})
+
+    def test_internal_checksum_rejects_old_dependency_digest(self):
+        with self.checksum_archive(digest=hashlib.sha256(b"old").hexdigest()) as z:
+            with self.assertRaisesRegex(gate.GateError, "Internal checksum mismatch"): gate.check_internal_checksums(z)
+
+    def test_internal_checksum_rejects_nested_stale_digest(self):
+        with self.checksum_archive(digest="0" * 64, nested=True) as z:
+            with self.assertRaisesRegex(gate.GateError, "Internal checksum mismatch"): gate.check_internal_checksums(z)
+
+    def test_internal_checksum_rejects_unsafe_path(self):
+        with self.checksum_archive(relative="../item.txt") as z:
+            with self.assertRaisesRegex(gate.GateError, "Unsafe internal checksum path"): gate.check_internal_checksums(z)
+
     @classmethod
     def setUpClass(cls):
         cls.directory = tempfile.TemporaryDirectory(prefix="release-gate-tests-")

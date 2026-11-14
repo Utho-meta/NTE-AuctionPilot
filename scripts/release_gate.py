@@ -4,6 +4,7 @@ import argparse
 import base64
 import hashlib
 import html
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -114,6 +115,33 @@ def check_text(contract, documents, body):
             require(term in documents[name], "Required content missing from " + name + ": " + term)
 
 
+def check_internal_checksums(archive, depth=0):
+    require(depth <= 8, "Checksum archive nesting is too deep")
+    names = set(archive.namelist())
+    counts = {"manifests": 0, "files": 0}
+    for name in sorted(names):
+        if PurePosixPath(name).name == "SHA256SUMS.txt":
+            counts["manifests"] += 1
+            seen = set()
+            for line in archive.read(name).decode("utf-8-sig").splitlines():
+                require(bool(re.fullmatch(r"[0-9a-fA-F]{64}  .+", line)), "Invalid internal checksum line: " + name)
+                digest, relative = line.split("  ", 1)
+                item = PurePosixPath(relative.replace("\\", "/"))
+                require(not item.is_absolute() and ".." not in item.parts and ":" not in relative,
+                        "Unsafe internal checksum path: " + name)
+                target = str(PurePosixPath(name).parent / item)
+                require(target in names and target not in seen, "Missing or duplicate internal checksum target: " + target)
+                seen.add(target)
+                require(hashlib.sha256(archive.read(target)).hexdigest() == digest.lower(),
+                        "Internal checksum mismatch: " + target)
+                counts["files"] += 1
+        if name.lower().endswith(".zip"):
+            with zipfile.ZipFile(io.BytesIO(archive.read(name))) as nested:
+                children = check_internal_checksums(nested, depth + 1)
+                for key in counts: counts[key] += children[key]
+    return counts
+
+
 def check_archive(path, contract):
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
@@ -121,6 +149,7 @@ def check_archive(path, contract):
         require(all(not n.startswith(("/", "\\")) and ".." not in PurePosixPath(n.replace("\\", "/")).parts
                     for n in names), "ZIP contains unsafe paths")
         require(archive.testzip() is None, "ZIP CRC failure")
+        checksums = check_internal_checksums(archive)
         member = contract["manifest_member"]
         actual = json.loads(archive.read(member).decode("utf-8-sig"))
         require(actual == contract["manifest"], "Downloaded package manifest differs from release contract")
@@ -134,7 +163,8 @@ def check_archive(path, contract):
             require(prefix + entry in names and archive.getinfo(prefix + entry).file_size > 0,
                     "Missing deliverable: " + entry)
         result = {"entries": len(names), "crc_passed": True, "manifest_matches": True,
-                  "project_count": len(actual["projects"]), "required_paths_passed": True}
+                  "project_count": len(actual["projects"]), "required_paths_passed": True,
+                  "internal_checksums": checksums}
     require("privacy_review" in contract, "Missing current privacy review")
     result["privacy"] = require_review(scan_archive(path), contract["privacy_review"])
     return result

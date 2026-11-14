@@ -38,6 +38,7 @@ python scripts/release_gate.py verify --root . --contract release/contract.json 
 - README 最新下载排在首位，四项目版本与入口对应压缩包清单；历史链接只能放在历史区。Release 同样具有本期版本、直链、精确字节数、SHA-256 和预发布标记。
 - 仓库发布说明与 Release 正文相同；说明 `Source code` 文档快照不是运行包；稳定版 latest 符合本期计划。
 - 实际首页和发布页显示本期版本与正确下载链接；README/Release 的链接能够访问。
+- 校验包内及嵌套 ZIP 的 `SHA256SUMS.txt`，逐项检查所指文件的实际摘要；旧摘要、缺失文件、重复目标或越界路径均阻止发布。
 - 每次从匿名公开下载直链重新下载所有资产，核对大小和 SHA-256，不读取缓存 ZIP 或旧的检查结果。验证 ZIP 全部 CRC、四项目清单和入口、报告视频及索引。
 - 对实际下载包再次递归执行隐私扫描，并验证内容清单与已提交的人工审阅摘要完全一致。包括嵌套 ZIP、PyInstaller/PYZ、PE 调试路径、UTF-16/JSON 转义内容、HTML 内嵌图片、图片 EXIF/文本块、视频各流及章节元数据。旧的结构一致性检查或人工审阅不能替代本期内容检查。
 - 精确列入撤回清单的旧 Release 与下载链接必须返回 404/410，不能只从 README 隐藏入口。
