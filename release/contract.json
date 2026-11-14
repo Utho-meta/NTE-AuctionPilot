@@ -2,22 +2,22 @@
   "schema": 2,
   "repository": "Utho-meta/NTE-AuctionPilot",
   "branch": "main",
-  "tag": "four-projects-20261114-r5",
+  "tag": "four-projects-20261114-r6",
   "prerelease": true,
   "stable_latest_tag": "v0.12.10",
   "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
-  "archive": "AuctionPilot-FourProjects-20261114-Preview8.zip",
-  "checksum": "AuctionPilot-FourProjects-20261114-Preview8.zip.sha256.txt",
+  "archive": "AuctionPilot-FourProjects-20261114-Preview9.zip",
+  "checksum": "AuctionPilot-FourProjects-20261114-Preview9.zip.sha256.txt",
   "assets": [
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview8.zip",
-      "size": 304670831,
-      "sha256": "a942d103737eca24df27d85fcdd65c3d72c0333db19783f7c72c8d14d8386cc5"
+      "name": "AuctionPilot-FourProjects-20261114-Preview9.zip",
+      "size": 304670121,
+      "sha256": "b01f7bb3f7881eb4bac9af30726b959235b5644f3cbc206b4d815fd12176c9ac"
     },
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview8.zip.sha256.txt",
+      "name": "AuctionPilot-FourProjects-20261114-Preview9.zip.sha256.txt",
       "size": 115,
-      "sha256": "a1cabd0ef2c06494a4b5e05e4e1514bc8837322774fc5642c5377a7446db328f"
+      "sha256": "32caf9ab999ba03ada9eb6eae2ec25d7a7589041b4f6e1f4bdb4de2266ef8a3b"
     }
   ],
   "manifest_member": "版本与验证.json",
@@ -36,7 +36,7 @@
       {
         "number": 2,
         "name": "Arena 模拟器",
-        "version": "0.4.0-preview.8",
+        "version": "0.4.0-preview.9",
         "status": "已知信息四分区，桌宠沿用主程序提示；保留真实贴图、逐席报价与开仓动画",
         "directory": "02-Arena模拟器",
         "strategy_revision": "20261113-complete"
@@ -67,7 +67,7 @@
       "offline_report_checks": 6,
       "main_preserved": "业务代码与功能沿用原版",
       "settings_and_recordings_untouched": true,
-      "arena_interaction_checks": 1577,
+      "arena_interaction_checks": 1578,
       "arena_self_contained_launch": true,
       "arena_pet_reference_states": 200,
       "arena_engine_response_comparisons": 441,
@@ -84,9 +84,9 @@
       },
       "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
     },
-    "public_revision": "20261114-arena-preview8",
+    "public_revision": "20261114-arena-preview9",
     "interaction_revision": {
-      "version": "0.4.0-preview.8",
+      "version": "0.4.0-preview.9",
       "research_basis": "2026-11-13",
       "rankings_unchanged": true,
       "changes": [
@@ -131,10 +131,10 @@
       "匿名模拟汇总"
     ]
   },
-  "notes_file": "RELEASE_NOTES_four-projects-20261114-r5.md",
+  "notes_file": "RELEASE_NOTES_four-projects-20261114-r6.md",
   "privacy_review": {
     "schema": 1,
-    "payload_inventory_sha256": "204806aaf5a1b591287c33e53821246be2a6f374c1f666cbf78d7bcfd4390085",
+    "payload_inventory_sha256": "b848ab21798f997c8e514b70c2688b0051af4d6f9b926082327e82bbeff023a7",
     "reviewed": {
       "public_text_and_data": true,
       "images_and_video_frames": true,
@@ -143,7 +143,7 @@
       "licenses_preserved": true
     },
     "method": "审阅本期四分类与桌宠预览、交互演示、使用说明、首页、索引、版本清单和嵌套阅读说明。模拟器只含测试生成的匿名画面；230件贴图、10个音效和既有研究视频与上期已审阅素材一致。主程序仅刷新随包摘要清单，运行文件不变；展柜不变；无个人设置、实战记录或参考声音原件进入包。递归扫描包括嵌套归档、程序载荷与元数据；保留第三方许可。",
-    "release": "four-projects-20261114-r5",
+    "release": "four-projects-20261114-r6",
     "review_date": "2026-11-14",
     "recursive_scan_counts": {
       "zip_archives": 3,
@@ -157,7 +157,7 @@
       "video_metadata": 2
     }
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview8 · 2026-11-14",
+  "release_title": "AuctionPilot 四项目合集 · Arena Preview9 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -174,12 +174,20 @@
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip",
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip.sha256.txt"
       ]
+    },
+    {
+      "tag": "four-projects-20261114-r5",
+      "id": 445008253,
+      "asset_urls": [
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r5/AuctionPilot-FourProjects-20261114-Preview8.zip",
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r5/AuctionPilot-FourProjects-20261114-Preview8.zip.sha256.txt"
+      ]
     }
   ],
   "documents": {
-    "README.md": "90429356be01154335fd10a0c3ce378791554a78e72ea16bbc79a3fa8e62ecc5",
+    "README.md": "2f509ea81c3baebe0f060b0fe80360ab946fe54e834c54124fb7e724bd1202f6",
     "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
-    "RELEASE_NOTES_four-projects-20261114-r5.md": "8a509bf6ed0a794c17d7918f78cb0805e6c331a94f9d64f6635f2997ea183911",
-    "release/privacy-review.json": "6d3c27c5d44c998c55c6f26fb5a8c42fa0368b00653b264959eeff333455cc4b"
+    "RELEASE_NOTES_four-projects-20261114-r6.md": "2921580bb042abbabc0875bb6ad81baee1b11e15eb6c638f23a3cb47ebbd359d",
+    "release/privacy-review.json": "e0e4bc39ec49c1761feb15157ece0392a844cf890adf3c62f11ad2712c27001b"
   }
 }

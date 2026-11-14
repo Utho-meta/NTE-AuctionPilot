@@ -6,27 +6,27 @@
 
 ## 最新下载
 
-**2026-11-14 四项目合集 · Arena Preview8**
+**2026-11-14 四项目合集 · Arena Preview9**
 
-- **[下载最新四项目完整包（约 305 MB）](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r5/AuctionPilot-FourProjects-20261114-Preview8.zip)**
-- [查看本期发布说明](https://github.com/Utho-meta/NTE-AuctionPilot/releases/tag/four-projects-20261114-r5)
-- [下载 SHA-256 校验文件](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r5/AuctionPilot-FourProjects-20261114-Preview8.zip.sha256.txt)
+- **[下载最新四项目完整包（约 305 MB）](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r6/AuctionPilot-FourProjects-20261114-Preview9.zip)**
+- [查看本期发布说明](https://github.com/Utho-meta/NTE-AuctionPilot/releases/tag/four-projects-20261114-r6)
+- [下载 SHA-256 校验文件](https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r6/AuctionPilot-FourProjects-20261114-Preview9.zip.sha256.txt)
 
-请下载文件名为 `AuctionPilot-FourProjects-20261114-Preview8.zip` 的运行包。发布页自动显示的 `Source code` 是仓库文档快照，不包含四项目运行文件。
+请下载文件名为 `AuctionPilot-FourProjects-20261114-Preview9.zip` 的运行包。发布页自动显示的 `Source code` 是仓库文档快照，不包含四项目运行文件。
 
 合集保留程序原有的 **Preview** 版本号，按预发布提供。上方直链指向最新四项目合集；GitHub 的 `/releases/latest` 仍指向主程序稳定版 v0.12.10。
 
 | 项目 | 合集版本 | 本期内容 | 解压后的入口 |
 | --- | --- | --- | --- |
 | 01 · AuctionPilot 主程序 | v0.12.12 Preview2 | 主程序业务代码未改，功能沿用原版 | `01-主程序-沿用原版/AuctionPilot.exe` |
-| 02 · Arena 模拟器 | v0.4.0 Preview8 | 已知信息四分类、主程序桌宠提示与竞拍动画 | `02-Arena模拟器/AuctionPilotArena.exe` |
+| 02 · Arena 模拟器 | v0.4.0 Preview9 | 已知信息四分类、主程序桌宠提示与竞拍动画 | `02-Arena模拟器/AuctionPilotArena.exe` |
 | 03 · 展柜搭配实验室 | v0.4 Preview3 | 39 件红藏品、三种推荐方案及报告入口 | `03-展柜搭配实验室/展柜搭配实验室.html` |
 | 04 · 版本分析报告 | v1.0 | 真珠与珊瑚的讲解视频、分析文档和匿名汇总 | `04-版本报告/index.html` |
 
-ZIP 大小为 **304,670,831 字节**，SHA-256：
+ZIP 大小为 **304,670,121 字节**，SHA-256：
 
 ```text
-a942d103737eca24df27d85fcdd65c3d72c0333db19783f7c72c8d14d8386cc5
+b01f7bb3f7881eb4bac9af30726b959235b5644f3cbc206b4d815fd12176c9ac
 ```
 
 ## 开始使用
@@ -44,7 +44,9 @@ a942d103737eca24df27d85fcdd65c3d72c0333db19783f7c72c8d14d8386cc5
 
 合集中的 v0.12.12 Preview2 业务代码与功能沿用原版，附带运行依赖及第三方许可。Arena 的策略和模拟机制更新不代表主程序也作了相同修改。每轮请从仓位顶部缓慢扫描到底部，显示扫描完成后再参考结果。
 
-## 02 · Arena 模拟器 v0.4.0 Preview8
+## 02 · Arena 模拟器 v0.4.0 Preview9
+
+- 缩小分类区内边距，使最小窗口仍保留可阅读的正文和独立滚动。
 
 - “已知信息”分为 **仪器优先级、技能信息、公开信息、桌宠内容** 四个可切换分类，内容独立滚动并支持复制。
 - 桌宠复用当前主程序 v0.12.12 Preview2 的估价与文案，普通模型、达夫蒂尔、阿德勒、埃德嘉按各自分支显示；只读取本席已知信息。使用主程序默认保守模式；系统估价未提供时显示“未读”，训练参考报价仍单独展示。未读取个人设置。
@@ -84,14 +86,14 @@ a942d103737eca24df27d85fcdd65c3d72c0333db19783f7c72c8d14d8386cc5
 
 - **视频**：用图表解释真珠、珊瑚角色与配装结论，配柔和普通话女声、中文字幕，右下角为日常装桌宠说话动作。
 - **文档**：包含 HTML 分析报告、打法速查、讲解稿、字幕、主榜数据、匿名模拟汇总和版本清单。
-- **适用口径**：2026-11-13 冻结标准局模型，全部出售、不计展柜，对应 Arena v0.4.0 Preview8。不能将拍卖定榜直接当作展柜收益排名。
+- **适用口径**：2026-11-13 冻结标准局模型，全部出售、不计展柜，对应 Arena v0.4.0 Preview9。不能将拍卖定榜直接当作展柜收益排名。
 - **结论边界**：区分游戏规则变化、模型修正和打法优化。本期是模拟与打法复核，不是游戏官方角色平衡公告；珊瑚场不宣称唯一冠军。
 
 后续按版本保留报告、图表数据、视频、讲稿与字幕、匿名汇总，说明变化来源和适用范围。
 
 ## 本期验证与限制
 
-本次通过 1,577 项界面与交互检查：覆盖十助手、两场、五轮的200个已知状态，与当前主程序程序集的桌宠估价逐项一致；主程序提示文案与计算源码保持同源。另有 441 次新旧打包引擎响应比对，全部原有字段一致。已检查信息分类、未知信息隔离、结束后清除旧报价，以及逐席报价、品质延时、跳过、重复提交与关闭中断。解压后的完整包启动通过；主程序运行文件、展柜、原音效和既有研究视频保持不变；刷新主程序随包摘要清单。
+本次通过 1,578 项界面与交互检查：覆盖十助手、两场、五轮的200个已知状态，与当前主程序程序集的桌宠估价逐项一致；主程序提示文案与计算源码保持同源。另有 441 次新旧打包引擎响应比对，全部原有字段一致。已检查信息分类、未知信息隔离、结束后清除旧报价，以及逐席报价、品质延时、跳过、重复提交与关闭中断。解压后的完整包启动通过；主程序运行文件、展柜、原音效和既有研究视频保持不变；刷新主程序随包摘要清单。
 
 此前的 1,196 次打包程序接口比对、60 局完整模拟、60 个金色核心实际启用用例、230 项 Arena 机制检查、35 项展柜浏览器检查和 6 项离线报告检查属于沿用的机制验证，不是此次重新完成的实战测试。
 

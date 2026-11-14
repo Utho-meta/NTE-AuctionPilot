@@ -32,7 +32,7 @@
       "匿名模拟汇总"
     ]
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview8 · 2026-11-14",
+  "release_title": "AuctionPilot 四项目合集 · Arena Preview9 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -48,6 +48,14 @@
       "asset_urls": [
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip",
         "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r2/AuctionPilot-FourProjects-20261114-r2.zip.sha256.txt"
+      ]
+    },
+    {
+      "tag": "four-projects-20261114-r5",
+      "id": 445008253,
+      "asset_urls": [
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r5/AuctionPilot-FourProjects-20261114-Preview8.zip",
+        "https://github.com/Utho-meta/NTE-AuctionPilot/releases/download/four-projects-20261114-r5/AuctionPilot-FourProjects-20261114-Preview8.zip.sha256.txt"
       ]
     }
   ]
