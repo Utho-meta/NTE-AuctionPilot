@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "payload_inventory_sha256": "1acae834fa5f2c4823800a3fe193e03d1c67c2395ddc4991d526b6b9e3d54a8a",
+  "payload_inventory_sha256": "9f51f41ef6ecae73c490dfa6fde3eaaffa6f1ae02d770942d1b182309281dde9",
   "reviewed": {
     "public_text_and_data": true,
     "images_and_video_frames": true,
@@ -8,18 +8,18 @@
     "binary_and_archive_metadata": true,
     "licenses_preserved": true
   },
-  "method": "已审阅本次8项随包文档及归档修改，并核对索引预览。742项程序、库及模型文件、685项图片视频字幕与上一份已审阅包逐字节一致；第三方许可原文保留。",
-  "release": "four-projects-20261114-r3",
+  "method": "审阅本期使用说明、索引、版本清单与嵌套阅读说明；核对模拟器报价、开仓、结算和小窗口预览及32秒演示。230件贴图与已审阅的Preview6素材逐字节相同，音效代码与导出声段均沿用Preview6。主程序、展柜和研究视频未变，报告只补充当前适用版本；无原始对局录像、录音或私人研究材料进入交付。递归检查全部文件和元数据，保留第三方许可。",
+  "release": "four-projects-20261114-r4",
   "review_date": "2026-11-14",
   "recursive_scan_counts": {
     "zip_archives": 3,
-    "files": 1881,
+    "files": 2122,
     "pe_files": 793,
-    "png_images": 722,
-    "text_files": 70,
+    "png_images": 954,
+    "text_files": 78,
     "debug_records": 813,
     "pyinstaller_archives": 1,
     "python_module_archives": 1,
-    "video_metadata": 1
+    "video_metadata": 2
   }
 }

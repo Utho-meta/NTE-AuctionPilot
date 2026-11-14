@@ -2,22 +2,22 @@
   "schema": 2,
   "repository": "Utho-meta/NTE-AuctionPilot",
   "branch": "main",
-  "tag": "four-projects-20261114-r3",
+  "tag": "four-projects-20261114-r4",
   "prerelease": true,
   "stable_latest_tag": "v0.12.10",
   "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
-  "archive": "AuctionPilot-FourProjects-20261114.zip",
-  "checksum": "AuctionPilot-FourProjects-20261114.zip.sha256.txt",
+  "archive": "AuctionPilot-FourProjects-20261114-Preview7.zip",
+  "checksum": "AuctionPilot-FourProjects-20261114-Preview7.zip.sha256.txt",
   "assets": [
     {
-      "name": "AuctionPilot-FourProjects-20261114.zip",
-      "size": 298509175,
-      "sha256": "a1303ae7928388cd2971fed15ef1897d8dd483090b64f26f482e5f476a5c95ff"
+      "name": "AuctionPilot-FourProjects-20261114-Preview7.zip",
+      "size": 304186647,
+      "sha256": "ab4c852d4fa05ee2990468ce704311189a924dbadcd81ee70f57132d8f990d08"
     },
     {
-      "name": "AuctionPilot-FourProjects-20261114.zip.sha256.txt",
-      "size": 106,
-      "sha256": "75e9ee7dae50c646c61dec67c7f2ae12a6d779cc33b62783954a364054654d59"
+      "name": "AuctionPilot-FourProjects-20261114-Preview7.zip.sha256.txt",
+      "size": 115,
+      "sha256": "0acad5cce4a852effec183c56337223c20da032196101b9bb9b56cd03ee0c998"
     }
   ],
   "manifest_member": "版本与验证.json",
@@ -36,8 +36,8 @@
       {
         "number": 2,
         "name": "Arena 模拟器",
-        "version": "0.4.0-preview.5",
-        "status": "同步2026-11-13完整配装策略及模拟机制修正",
+        "version": "0.4.0-preview.7",
+        "status": "真实仓内贴图、四席表格内逐席报价、开仓放慢并按品质延长等待；沿用原有音效",
         "directory": "02-Arena模拟器",
         "strategy_revision": "20261113-complete"
       },
@@ -66,7 +66,10 @@
       "cabinet_scripts_and_data_identical": true,
       "offline_report_checks": 6,
       "main_preserved": "业务代码与功能沿用原版",
-      "settings_and_recordings_untouched": true
+      "settings_and_recordings_untouched": true,
+      "arena_interaction_checks": 155,
+      "arena_self_contained_launch": true,
+      "arena_engine_unchanged_since_preview5": true
     },
     "research_sha256": "94e587178aa6edc078798580b6655aa6f3506e8724ebe540b3ec3ca0e72eb929",
     "frozen_selection_sha256": "4b92bd654e0580e103fa851e5501374392a38a0e1156a7cc205fb5ce33059dec",
@@ -79,7 +82,18 @@
       },
       "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
     },
-    "public_revision": "20261114-documentation"
+    "public_revision": "20261114-arena-preview7",
+    "interaction_revision": {
+      "version": "0.4.0-preview.7",
+      "research_basis": "2026-11-13",
+      "rankings_unchanged": true,
+      "changes": [
+        "230件真实仓内贴图",
+        "报价在四席公开信息内依次公布",
+        "开仓展示至少放慢一倍，品质越高揭晓前等待越长",
+        "保留一键跳过与原有音效"
+      ]
+    }
   },
   "entrypoints": {
     "1": "AuctionPilot.exe",
@@ -89,7 +103,10 @@
   },
   "required_paths": [
     "项目索引.html",
-    "04-版本报告/视频/真珠与珊瑚-日常装桌宠讲解.mp4"
+    "04-版本报告/视频/真珠与珊瑚-日常装桌宠讲解.mp4",
+    "02-Arena模拟器/更新说明.html",
+    "02-Arena模拟器/交互演示.mp4",
+    "02-Arena模拟器/Data/WarehouseTextures/textures.json"
   ],
   "required_terms": {
     "README.md": [
@@ -108,10 +125,10 @@
       "匿名模拟汇总"
     ]
   },
-  "notes_file": "RELEASE_NOTES_four-projects-20261114-r3.md",
+  "notes_file": "RELEASE_NOTES_four-projects-20261114-r4.md",
   "privacy_review": {
     "schema": 1,
-    "payload_inventory_sha256": "1acae834fa5f2c4823800a3fe193e03d1c67c2395ddc4991d526b6b9e3d54a8a",
+    "payload_inventory_sha256": "9f51f41ef6ecae73c490dfa6fde3eaaffa6f1ae02d770942d1b182309281dde9",
     "reviewed": {
       "public_text_and_data": true,
       "images_and_video_frames": true,
@@ -119,22 +136,22 @@
       "binary_and_archive_metadata": true,
       "licenses_preserved": true
     },
-    "method": "已审阅本次8项随包文档及归档修改，并核对索引预览。742项程序、库及模型文件、685项图片视频字幕与上一份已审阅包逐字节一致；第三方许可原文保留。",
-    "release": "four-projects-20261114-r3",
+    "method": "审阅本期使用说明、索引、版本清单与嵌套阅读说明；核对模拟器报价、开仓、结算和小窗口预览及32秒演示。230件贴图与已审阅的Preview6素材逐字节相同，音效代码与导出声段均沿用Preview6。主程序、展柜和研究视频未变，报告只补充当前适用版本；无原始对局录像、录音或私人研究材料进入交付。递归检查全部文件和元数据，保留第三方许可。",
+    "release": "four-projects-20261114-r4",
     "review_date": "2026-11-14",
     "recursive_scan_counts": {
       "zip_archives": 3,
-      "files": 1881,
+      "files": 2122,
       "pe_files": 793,
-      "png_images": 722,
-      "text_files": 70,
+      "png_images": 954,
+      "text_files": 78,
       "debug_records": 813,
       "pyinstaller_archives": 1,
       "python_module_archives": 1,
-      "video_metadata": 1
+      "video_metadata": 2
     }
   },
-  "release_title": "AuctionPilot 四项目合集 · 2026-11-14",
+  "release_title": "AuctionPilot 四项目合集 · Arena Preview7 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -154,9 +171,9 @@
     }
   ],
   "documents": {
-    "README.md": "cce9b1977c3a696194f161d0eefe8649d1201d1bc84047430874d606b5f06a0c",
+    "README.md": "e559dc9fdbeb50a14684dbe5a280e80876402bb798884e56e51c9dba713f7665",
     "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
-    "RELEASE_NOTES_four-projects-20261114-r3.md": "cf959519d95e7068f93137acf54f1afc2b61a26486a54c49bd70636b7a02b3c1",
-    "release/privacy-review.json": "6ef86c14dcf17c9326e10383569506f7f3fe1394cc5046a21e5c3cea9d9e6883"
+    "RELEASE_NOTES_four-projects-20261114-r4.md": "3caf6a5cd780ce53e33307596d4cf630545289c41bf96c404eb04b1d16d3e497",
+    "release/privacy-review.json": "3fa82d27f54f5779bc13caa31b34147b6abf2d44d233918de533184c4879b32b"
   }
 }
