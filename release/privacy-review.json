@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "payload_inventory_sha256": "b848ab21798f997c8e514b70c2688b0051af4d6f9b926082327e82bbeff023a7",
+  "payload_inventory_sha256": "518bcaf98824c6c35171a9630f40c2b2344f3b38fd1831206d4e8f334dc3c3e3",
   "reviewed": {
     "public_text_and_data": true,
     "images_and_video_frames": true,
@@ -8,8 +8,8 @@
     "binary_and_archive_metadata": true,
     "licenses_preserved": true
   },
-  "method": "审阅本期四分类与桌宠预览、交互演示、使用说明、首页、索引、版本清单和嵌套阅读说明。模拟器只含测试生成的匿名画面；230件贴图、10个音效和既有研究视频与上期已审阅素材一致。主程序仅刷新随包摘要清单，运行文件不变；展柜不变；无个人设置、实战记录或参考声音原件进入包。递归扫描包括嵌套归档、程序载荷与元数据；保留第三方许可。",
-  "release": "four-projects-20261114-r6",
+  "method": "审阅本期同页信息、轮廓开仓预览及演示、M1000图鉴单行更正、使用说明、首页、索引、版本清单和嵌套阅读说明。新画面均由模拟器生成；230件贴图、10个音效、主程序、展柜和既有研究视频沿用已审阅的相同文件。报告新增历史结果适用范围说明，未混入个人实战、设置或内部原始记录。递归扫描程序及归档载荷与元数据，保留第三方许可。",
+  "release": "four-projects-20261114-r7",
   "review_date": "2026-11-14",
   "recursive_scan_counts": {
     "zip_archives": 3,

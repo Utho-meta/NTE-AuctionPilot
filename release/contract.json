@@ -2,22 +2,22 @@
   "schema": 2,
   "repository": "Utho-meta/NTE-AuctionPilot",
   "branch": "main",
-  "tag": "four-projects-20261114-r6",
+  "tag": "four-projects-20261114-r7",
   "prerelease": true,
   "stable_latest_tag": "v0.12.10",
   "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
-  "archive": "AuctionPilot-FourProjects-20261114-Preview9.zip",
-  "checksum": "AuctionPilot-FourProjects-20261114-Preview9.zip.sha256.txt",
+  "archive": "AuctionPilot-FourProjects-20261114-Preview10.zip",
+  "checksum": "AuctionPilot-FourProjects-20261114-Preview10.zip.sha256.txt",
   "assets": [
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview9.zip",
-      "size": 304670121,
-      "sha256": "b01f7bb3f7881eb4bac9af30726b959235b5644f3cbc206b4d815fd12176c9ac"
+      "name": "AuctionPilot-FourProjects-20261114-Preview10.zip",
+      "size": 304524916,
+      "sha256": "6fc6582d45e0470b0d3cee8556ed56cd7073cc03a42200e1674e17d5e773c9e5"
     },
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview9.zip.sha256.txt",
-      "size": 115,
-      "sha256": "32caf9ab999ba03ada9eb6eae2ec25d7a7589041b4f6e1f4bdb4de2266ef8a3b"
+      "name": "AuctionPilot-FourProjects-20261114-Preview10.zip.sha256.txt",
+      "size": 116,
+      "sha256": "da5c90189c9372de78f53a02b20bff66387bca76f11ce0d34f5addae6c24caf4"
     }
   ],
   "manifest_member": "版本与验证.json",
@@ -36,8 +36,8 @@
       {
         "number": 2,
         "name": "Arena 模拟器",
-        "version": "0.4.0-preview.9",
-        "status": "已知信息四分区，桌宠沿用主程序提示；保留真实贴图、逐席报价与开仓动画",
+        "version": "0.4.0-preview.10",
+        "status": "M1000更正为3×3；信息同页排列；全部藏品先轮廓后揭晓",
         "directory": "02-Arena模拟器",
         "strategy_revision": "20261113-complete"
       },
@@ -52,26 +52,24 @@
         "number": 4,
         "name": "版本分析报告",
         "version": "1.0",
-        "status": "视频、报告、讲稿、字幕及模拟汇总",
+        "status": "2026-11-13历史视频与报告；新增M1000更正后的适用范围说明，未重跑定榜",
         "directory": "04-版本报告"
       }
     ],
-    "scope": "本次冻结标准局模拟，全部出售、不计展柜；新交付包未覆盖原安装",
+    "scope": "本版更正M1000数据并更新交互；报告保留Preview5冻结模型历史结果，未按更正数据重跑定榜。全部出售、不计展柜；原安装未改。",
     "verification": {
-      "arena_complete_games": 60,
-      "actual_gold_core_cases": 60,
-      "arena_checks": 230,
-      "packaged_rpc_comparisons": 1196,
-      "cabinet_browser_checks": 35,
       "cabinet_scripts_and_data_identical": true,
-      "offline_report_checks": 6,
       "main_preserved": "业务代码与功能沿用原版",
       "settings_and_recordings_untouched": true,
-      "arena_interaction_checks": 1578,
+      "arena_interaction_checks": 1586,
       "arena_self_contained_launch": true,
       "arena_pet_reference_states": 200,
       "arena_engine_response_comparisons": 441,
-      "arena_engine_rules_equivalent_to_preview7": true
+      "arena_engine_executable_unchanged_since_preview9": true,
+      "arena_catalog_correction": "M1000: 3x3, 9 cells",
+      "arena_geometry_check_games": 23,
+      "arena_geometry_m1000_cases": 6,
+      "arena_engine_comparison_scope": "same corrected catalog"
     },
     "research_sha256": "94e587178aa6edc078798580b6655aa6f3506e8724ebe540b3ec3ca0e72eb929",
     "frozen_selection_sha256": "4b92bd654e0580e103fa851e5501374392a38a0e1156a7cc205fb5ce33059dec",
@@ -84,19 +82,25 @@
       },
       "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
     },
-    "public_revision": "20261114-arena-preview9",
+    "public_revision": "20261114-arena-preview10",
     "interaction_revision": {
-      "version": "0.4.0-preview.9",
+      "version": "0.4.0-preview.10",
       "research_basis": "2026-11-13",
-      "rankings_unchanged": true,
+      "rankings_recomputed": false,
       "changes": [
-        "已知信息四分区",
-        "沿用主程序桌宠估价与提示",
-        "230件真实仓内贴图",
-        "报价在四席公开信息内依次公布",
-        "开仓展示至少放慢一倍，品质越高揭晓前等待越长",
-        "保留一键跳过与原有音效"
+        "M1000更正为3×3、9格",
+        "桌宠、技能、公开信息、仪器优先级同页排列",
+        "结算开仓先覆盖全部藏品，再逐件揭晓",
+        "保留原有品质延时、音效和一键跳过"
       ]
+    },
+    "historical_verification": {
+      "arena_complete_games": 60,
+      "actual_gold_core_cases": 60,
+      "arena_checks": 230,
+      "packaged_rpc_comparisons": 1196,
+      "cabinet_browser_checks": 35,
+      "offline_report_checks": 6
     }
   },
   "entrypoints": {
@@ -131,10 +135,10 @@
       "匿名模拟汇总"
     ]
   },
-  "notes_file": "RELEASE_NOTES_four-projects-20261114-r6.md",
+  "notes_file": "RELEASE_NOTES_four-projects-20261114-r7.md",
   "privacy_review": {
     "schema": 1,
-    "payload_inventory_sha256": "b848ab21798f997c8e514b70c2688b0051af4d6f9b926082327e82bbeff023a7",
+    "payload_inventory_sha256": "518bcaf98824c6c35171a9630f40c2b2344f3b38fd1831206d4e8f334dc3c3e3",
     "reviewed": {
       "public_text_and_data": true,
       "images_and_video_frames": true,
@@ -142,8 +146,8 @@
       "binary_and_archive_metadata": true,
       "licenses_preserved": true
     },
-    "method": "审阅本期四分类与桌宠预览、交互演示、使用说明、首页、索引、版本清单和嵌套阅读说明。模拟器只含测试生成的匿名画面；230件贴图、10个音效和既有研究视频与上期已审阅素材一致。主程序仅刷新随包摘要清单，运行文件不变；展柜不变；无个人设置、实战记录或参考声音原件进入包。递归扫描包括嵌套归档、程序载荷与元数据；保留第三方许可。",
-    "release": "four-projects-20261114-r6",
+    "method": "审阅本期同页信息、轮廓开仓预览及演示、M1000图鉴单行更正、使用说明、首页、索引、版本清单和嵌套阅读说明。新画面均由模拟器生成；230件贴图、10个音效、主程序、展柜和既有研究视频沿用已审阅的相同文件。报告新增历史结果适用范围说明，未混入个人实战、设置或内部原始记录。递归扫描程序及归档载荷与元数据，保留第三方许可。",
+    "release": "four-projects-20261114-r7",
     "review_date": "2026-11-14",
     "recursive_scan_counts": {
       "zip_archives": 3,
@@ -157,7 +161,7 @@
       "video_metadata": 2
     }
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview9 · 2026-11-14",
+  "release_title": "AuctionPilot 四项目合集 · Arena Preview10 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -185,9 +189,9 @@
     }
   ],
   "documents": {
-    "README.md": "2f509ea81c3baebe0f060b0fe80360ab946fe54e834c54124fb7e724bd1202f6",
+    "README.md": "2b223525785701c6eb2ad5fb5feb0fa8e15df0bfe9b91a027f90715d12faf49f",
     "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
-    "RELEASE_NOTES_four-projects-20261114-r6.md": "2921580bb042abbabc0875bb6ad81baee1b11e15eb6c638f23a3cb47ebbd359d",
-    "release/privacy-review.json": "e0e4bc39ec49c1761feb15157ece0392a844cf890adf3c62f11ad2712c27001b"
+    "RELEASE_NOTES_four-projects-20261114-r7.md": "6e7f7341dd7ec9faaca400b49a91f90de7ddcb050a19a370e429a4ec15c881e0",
+    "release/privacy-review.json": "a54d14d97044015a13602553464d6dd3c38a12c22a7f9f23bc9173426ee7d7ef"
   }
 }
