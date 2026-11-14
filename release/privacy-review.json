@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "payload_inventory_sha256": "518bcaf98824c6c35171a9630f40c2b2344f3b38fd1831206d4e8f334dc3c3e3",
+  "payload_inventory_sha256": "f3307786dad0803b3b2632ab400cbe24c1d67aa5a956ca744a04d28f85d7b9d4",
   "reviewed": {
     "public_text_and_data": true,
     "images_and_video_frames": true,
@@ -8,8 +8,8 @@
     "binary_and_archive_metadata": true,
     "licenses_preserved": true
   },
-  "method": "审阅本期同页信息、轮廓开仓预览及演示、M1000图鉴单行更正、使用说明、首页、索引、版本清单和嵌套阅读说明。新画面均由模拟器生成；230件贴图、10个音效、主程序、展柜和既有研究视频沿用已审阅的相同文件。报告新增历史结果适用范围说明，未混入个人实战、设置或内部原始记录。递归扫描程序及归档载荷与元数据，保留第三方许可。",
-  "release": "four-projects-20261114-r7",
+  "method": "审阅均价修正说明、测试生成的桌宠报价与交互预览、演示视频、首页、索引、版本清单和嵌套阅读说明。主程序、图鉴贴图、展柜、原有音效与研究视频沿用已审阅的相同文件。新程序载荷仅改均价读数及对应区间，已递归检查二进制和归档元数据；未包含个人对局、设置、内部诊断记录或参考声音原件。第三方许可保留。",
+  "release": "four-projects-20261114-r8",
   "review_date": "2026-11-14",
   "recursive_scan_counts": {
     "zip_archives": 3,

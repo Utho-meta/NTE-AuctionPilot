@@ -2,22 +2,22 @@
   "schema": 2,
   "repository": "Utho-meta/NTE-AuctionPilot",
   "branch": "main",
-  "tag": "four-projects-20261114-r7",
+  "tag": "four-projects-20261114-r8",
   "prerelease": true,
   "stable_latest_tag": "v0.12.10",
   "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
-  "archive": "AuctionPilot-FourProjects-20261114-Preview10.zip",
-  "checksum": "AuctionPilot-FourProjects-20261114-Preview10.zip.sha256.txt",
+  "archive": "AuctionPilot-FourProjects-20261114-Preview11.zip",
+  "checksum": "AuctionPilot-FourProjects-20261114-Preview11.zip.sha256.txt",
   "assets": [
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview10.zip",
-      "size": 304524916,
-      "sha256": "6fc6582d45e0470b0d3cee8556ed56cd7073cc03a42200e1674e17d5e773c9e5"
+      "name": "AuctionPilot-FourProjects-20261114-Preview11.zip",
+      "size": 304498364,
+      "sha256": "fa9e1437dc03f23e6492c0f8d9b9ac8dbdcb8009f5a49dfa48284eaf44abfda9"
     },
     {
-      "name": "AuctionPilot-FourProjects-20261114-Preview10.zip.sha256.txt",
+      "name": "AuctionPilot-FourProjects-20261114-Preview11.zip.sha256.txt",
       "size": 116,
-      "sha256": "da5c90189c9372de78f53a02b20bff66387bca76f11ce0d34f5addae6c24caf4"
+      "sha256": "2673106e41b2a7b32984be0e23a8207d58dd061ffa40042f2c694368ed2b0277"
     }
   ],
   "manifest_member": "版本与验证.json",
@@ -36,8 +36,8 @@
       {
         "number": 2,
         "name": "Arena 模拟器",
-        "version": "0.4.0-preview.10",
-        "status": "M1000更正为3×3；信息同页排列；全部藏品先轮廓后揭晓",
+        "version": "0.4.0-preview.11",
+        "status": "均价统一截断取整，修复由取整差异导致的桌宠报价中断",
         "directory": "02-Arena模拟器",
         "strategy_revision": "20261113-complete"
       },
@@ -52,24 +52,26 @@
         "number": 4,
         "name": "版本分析报告",
         "version": "1.0",
-        "status": "2026-11-13历史视频与报告；新增M1000更正后的适用范围说明，未重跑定榜",
+        "status": "保留2026-11-13历史报告与视频；补充M1000和均价修正后的适用范围",
         "directory": "04-版本报告"
       }
     ],
-    "scope": "本版更正M1000数据并更新交互；报告保留Preview5冻结模型历史结果，未按更正数据重跑定榜。全部出售、不计展柜；原安装未改。",
+    "scope": "报告保留2026-11-13、Arena Preview5冻结模型的历史结果。当前模拟器已更正M1000尺寸和均价取整，可能影响估值及竞拍结果；尚未按这些修正重跑角色定榜，历史名次不作为本版重新验证的结论。",
     "verification": {
       "cabinet_scripts_and_data_identical": true,
       "main_preserved": "业务代码与功能沿用原版",
       "settings_and_recordings_untouched": true,
-      "arena_interaction_checks": 1586,
+      "arena_interaction_checks": 1715,
       "arena_self_contained_launch": true,
       "arena_pet_reference_states": 200,
-      "arena_engine_response_comparisons": 441,
-      "arena_engine_executable_unchanged_since_preview9": true,
       "arena_catalog_correction": "M1000: 3x3, 9 cells",
       "arena_geometry_check_games": 23,
       "arena_geometry_m1000_cases": 6,
-      "arena_engine_comparison_scope": "same corrected catalog"
+      "arena_average_checks": 200,
+      "arena_average_full_games": 32,
+      "arena_average_pet_quotes": 32,
+      "arena_old_rounding_failures_recovered": 3,
+      "main_runtime_and_pet_code_unchanged": true
     },
     "research_sha256": "94e587178aa6edc078798580b6655aa6f3506e8724ebe540b3ec3ca0e72eb929",
     "frozen_selection_sha256": "4b92bd654e0580e103fa851e5501374392a38a0e1156a7cc205fb5ce33059dec",
@@ -82,16 +84,15 @@
       },
       "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
     },
-    "public_revision": "20261114-arena-preview10",
+    "public_revision": "20261114-arena-preview11",
     "interaction_revision": {
-      "version": "0.4.0-preview.10",
+      "version": "0.4.0-preview.11",
       "research_basis": "2026-11-13",
       "rankings_recomputed": false,
       "changes": [
-        "M1000更正为3×3、9格",
-        "桌宠、技能、公开信息、仪器优先级同页排列",
-        "结算开仓先覆盖全部藏品，再逐件揭晓",
-        "保留原有品质延时、音效和一键跳过"
+        "品质均价、二格/九格均价及拍卖师公开均价统一舍去小数，与主程序现有规则一致。",
+        "修复取整不一致导致达夫蒂尔桌宠误判无解、两档报价为空的问题；真实矛盾信息仍会暂停报价。",
+        "同步更正模拟器按件数与均价反推总价的区间；无对应藏品时读数为0，单件与整除情况保持准确。"
       ]
     },
     "historical_verification": {
@@ -135,10 +136,10 @@
       "匿名模拟汇总"
     ]
   },
-  "notes_file": "RELEASE_NOTES_four-projects-20261114-r7.md",
+  "notes_file": "RELEASE_NOTES_four-projects-20261114-r8.md",
   "privacy_review": {
     "schema": 1,
-    "payload_inventory_sha256": "518bcaf98824c6c35171a9630f40c2b2344f3b38fd1831206d4e8f334dc3c3e3",
+    "payload_inventory_sha256": "f3307786dad0803b3b2632ab400cbe24c1d67aa5a956ca744a04d28f85d7b9d4",
     "reviewed": {
       "public_text_and_data": true,
       "images_and_video_frames": true,
@@ -146,8 +147,8 @@
       "binary_and_archive_metadata": true,
       "licenses_preserved": true
     },
-    "method": "审阅本期同页信息、轮廓开仓预览及演示、M1000图鉴单行更正、使用说明、首页、索引、版本清单和嵌套阅读说明。新画面均由模拟器生成；230件贴图、10个音效、主程序、展柜和既有研究视频沿用已审阅的相同文件。报告新增历史结果适用范围说明，未混入个人实战、设置或内部原始记录。递归扫描程序及归档载荷与元数据，保留第三方许可。",
-    "release": "four-projects-20261114-r7",
+    "method": "审阅均价修正说明、测试生成的桌宠报价与交互预览、演示视频、首页、索引、版本清单和嵌套阅读说明。主程序、图鉴贴图、展柜、原有音效与研究视频沿用已审阅的相同文件。新程序载荷仅改均价读数及对应区间，已递归检查二进制和归档元数据；未包含个人对局、设置、内部诊断记录或参考声音原件。第三方许可保留。",
+    "release": "four-projects-20261114-r8",
     "review_date": "2026-11-14",
     "recursive_scan_counts": {
       "zip_archives": 3,
@@ -161,7 +162,7 @@
       "video_metadata": 2
     }
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview10 · 2026-11-14",
+  "release_title": "AuctionPilot 四项目合集 · Arena Preview11 · 2026-11-14",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -189,9 +190,9 @@
     }
   ],
   "documents": {
-    "README.md": "2b223525785701c6eb2ad5fb5feb0fa8e15df0bfe9b91a027f90715d12faf49f",
+    "README.md": "033f6fe02e4d42e2acee720772e3fe0af5834f0890b090c0f7d019a0fac102cb",
     "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
-    "RELEASE_NOTES_four-projects-20261114-r7.md": "6e7f7341dd7ec9faaca400b49a91f90de7ddcb050a19a370e429a4ec15c881e0",
-    "release/privacy-review.json": "a54d14d97044015a13602553464d6dd3c38a12c22a7f9f23bc9173426ee7d7ef"
+    "RELEASE_NOTES_four-projects-20261114-r8.md": "940ae978eee797ef2db81f4a0b27d8f6c5755c422c44c41fe4bc5f32aafaae72",
+    "release/privacy-review.json": "b24c743ba501379ba823942359a77781b09d5b7e24bb0ff4816777d097190055"
   }
 }
