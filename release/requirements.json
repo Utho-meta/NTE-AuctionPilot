@@ -3,7 +3,7 @@
   "entrypoints": {
     "1": "AuctionPilot.exe",
     "2": "AuctionPilotArena.exe",
-    "3": "展柜搭配实验室.html",
+    "3": "展柜搭配实验室.exe",
     "4": "index.html"
   },
   "required_paths": [
@@ -13,7 +13,9 @@
     "02-Arena模拟器/交互演示.mp4",
     "02-Arena模拟器/Data/WarehouseTextures/textures.json",
     "02-Arena模拟器/已知信息预览.png",
-    "02-Arena模拟器/桌宠内容预览.png"
+    "02-Arena模拟器/桌宠内容预览.png",
+    "03-展柜搭配实验室/展柜搭配实验室.html",
+    "03-展柜搭配实验室/小吱.ico"
   ],
   "required_terms": {
     "README.md": [
@@ -23,7 +25,7 @@
       "首次打开时库存和展柜均为空",
       "日常装桌宠",
       "全部出售、不计展柜",
-      "主程序业务代码未改",
+      "修复识别时浮窗回跳",
       "不等于长期实战验证"
     ],
     "PRIVACY.md": [
@@ -32,7 +34,7 @@
       "匿名模拟汇总"
     ]
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview14 · 2026-11-15",
+  "release_title": "AuctionPilot 四项目合集 · 浮窗拖动修复 · 2026-11-19",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",

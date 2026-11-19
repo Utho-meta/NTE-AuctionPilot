@@ -2,42 +2,42 @@
   "schema": 2,
   "repository": "Utho-meta/NTE-AuctionPilot",
   "branch": "main",
-  "tag": "four-projects-20261115-r1",
+  "tag": "four-projects-20261119-r1",
   "prerelease": true,
   "stable_latest_tag": "v0.12.10",
   "repository_description": "AuctionPilot 四项目工具集：小吱视觉观察助手、Arena 模拟器、展柜搭配实验室与版本分析报告（视频 + 文档）",
-  "archive": "AuctionPilot-FourProjects-20261115-Preview14.zip",
-  "checksum": "AuctionPilot-FourProjects-20261115-Preview14.zip.sha256.txt",
+  "archive": "AuctionPilot-FourProjects-20261119.zip",
+  "checksum": "AuctionPilot-FourProjects-20261119.zip.sha256.txt",
   "assets": [
     {
-      "name": "AuctionPilot-FourProjects-20261115-Preview14.zip",
-      "size": 304842478,
-      "sha256": "48efe37cd39b65adc5eb82a86d4da38a6337c29a09e681db2917ffa1843a7b1b"
+      "name": "AuctionPilot-FourProjects-20261119.zip",
+      "size": 305394179,
+      "sha256": "9754a5b4ecc6544d4d0713d7892c7524ea42a372c1eec9aad55b7fc03c0c31ec"
     },
     {
-      "name": "AuctionPilot-FourProjects-20261115-Preview14.zip.sha256.txt",
-      "size": 116,
-      "sha256": "e8e34c2590fc128cebf015f11b2513a4f8a04183248b379c23746172e0c7a878"
+      "name": "AuctionPilot-FourProjects-20261119.zip.sha256.txt",
+      "size": 106,
+      "sha256": "7dfa72fe7bd0aa097d2d95a9c1fbd740ccfb74ca3ee92a6c1fa7c075f3523c8c"
     }
   ],
   "manifest_member": "版本与验证.json",
   "manifest": {
-    "release_date": "2026-11-15",
+    "release_date": "2026-11-19",
     "projects": [
       {
         "number": 1,
         "name": "AuctionPilot 主程序",
         "version": "0.12.12-preview.2",
-        "status": "业务代码与功能沿用原版，附带运行依赖",
-        "directory": "01-主程序-沿用原版",
+        "status": "修复识别期间浮窗回跳，新增小吱启动图标",
+        "directory": "01-主程序",
         "files": 880,
-        "business_code_unchanged": true
+        "business_code_unchanged": false
       },
       {
         "number": 2,
         "name": "Arena 模拟器",
         "version": "0.4.0-preview.14",
-        "status": "实时千位逗号、自动切轮、开仓结束即开放下一局；估价与模拟引擎保持原版",
+        "status": "新增小吱启动图标，保持 Arena Preview14 的模拟和交互",
         "directory": "02-Arena模拟器",
         "strategy_revision": "20261113-complete"
       },
@@ -45,21 +45,21 @@
         "number": 3,
         "name": "展柜搭配实验室",
         "version": "0.4-preview.3",
-        "status": "数据来源与报告入口更新；藏品数据和算法保留",
+        "status": "增加小吱图标的 Windows 启动入口，HTML 仍可直接打开",
         "directory": "03-展柜搭配实验室"
       },
       {
         "number": 4,
         "name": "版本分析报告",
         "version": "1.0",
-        "status": "保留2026-11-13历史报告与视频；补充M1000和均价修正后的适用范围",
+        "status": "沿用 2026-11-13 的历史研究视频与文档",
         "directory": "04-版本报告"
       }
     ],
-    "scope": "报告保留2026-11-13、Arena Preview5冻结模型的历史结果。当前模拟器已更正M1000尺寸和均价取整，可能影响估值及竞拍结果；尚未按这些修正重跑角色定榜，历史名次不作为本版重新验证的结论。本次仅调整模拟器报价输入与动画收尾，模拟竞价引擎保持Preview11原版。",
+    "scope": "报告保留 2026-11-13 的 Arena Preview5 冻结模型结果。之后修正的 M1000 尺寸和均价取整尚未用于重跑角色定榜。本期调整浮窗拖动和启动入口，沿用既有研究视频与排名。",
     "verification": {
       "cabinet_scripts_and_data_identical": true,
-      "main_preserved": "业务代码与功能沿用原版",
+      "main_preserved": "估价、识别与录像功能沿用原版，本期修正浮窗定位",
       "settings_and_recordings_untouched": true,
       "arena_interaction_checks": 1957,
       "arena_self_contained_launch": true,
@@ -71,7 +71,7 @@
       "arena_average_full_games": 32,
       "arena_average_pet_quotes": 32,
       "arena_old_rounding_failures_recovered": 3,
-      "main_runtime_and_pet_code_unchanged": true,
+      "main_runtime_and_pet_code_unchanged": false,
       "arena_quality_first_cases": 40,
       "arena_quality_first_missing_estimates_recovered": 6,
       "arena_engine_unchanged_since_preview11": true,
@@ -99,7 +99,13 @@
         "verification_date": "2026-11-14",
         "current_version": "0.4.0-preview.14",
         "current_scope": "本版仅改报价输入与动画收尾；仪器与桌宠适配逐字节沿用Preview13。本文件为Preview13检查记录，本版未重新运行完整仪器顺序矩阵。"
-      }
+      },
+      "main_runtime_dependencies_unchanged": true,
+      "main_float_drag_checks": 30,
+      "main_float_drag_confirmed_in_game": true,
+      "current_arena_icon_entry_smoke_passed": true,
+      "current_cabinet_launcher_checked": true,
+      "current_windows_launcher_icons": 3
     },
     "research_sha256": "94e587178aa6edc078798580b6655aa6f3506e8724ebe540b3ec3ca0e72eb929",
     "frozen_selection_sha256": "4b92bd654e0580e103fa851e5501374392a38a0e1156a7cc205fb5ce33059dec",
@@ -112,7 +118,7 @@
       },
       "scope": "仅替换两处静态标题；算法、藏品数据、个人库存及方案均未改动。"
     },
-    "public_revision": "20261115-arena-preview14",
+    "public_revision": "20261119-overlay-drag",
     "interaction_revision": {
       "version": "0.4.0-preview.14",
       "research_basis": "2026-11-13",
@@ -135,7 +141,7 @@
   "entrypoints": {
     "1": "AuctionPilot.exe",
     "2": "AuctionPilotArena.exe",
-    "3": "展柜搭配实验室.html",
+    "3": "展柜搭配实验室.exe",
     "4": "index.html"
   },
   "required_paths": [
@@ -145,7 +151,9 @@
     "02-Arena模拟器/交互演示.mp4",
     "02-Arena模拟器/Data/WarehouseTextures/textures.json",
     "02-Arena模拟器/已知信息预览.png",
-    "02-Arena模拟器/桌宠内容预览.png"
+    "02-Arena模拟器/桌宠内容预览.png",
+    "03-展柜搭配实验室/展柜搭配实验室.html",
+    "03-展柜搭配实验室/小吱.ico"
   ],
   "required_terms": {
     "README.md": [
@@ -155,7 +163,7 @@
       "首次打开时库存和展柜均为空",
       "日常装桌宠",
       "全部出售、不计展柜",
-      "主程序业务代码未改",
+      "修复识别时浮窗回跳",
       "不等于长期实战验证"
     ],
     "PRIVACY.md": [
@@ -164,10 +172,10 @@
       "匿名模拟汇总"
     ]
   },
-  "notes_file": "RELEASE_NOTES_four-projects-20261115-r1.md",
+  "notes_file": "RELEASE_NOTES_four-projects-20261119-r1.md",
   "privacy_review": {
     "schema": 1,
-    "payload_inventory_sha256": "204b2107fde8984beb6969b504edaa710c43c6b6d9c372fb494bc277ebda0edd",
+    "payload_inventory_sha256": "9f804c855e559beaa3e0ba5a2ed70562952f865321c39701eab6a3290af6aee3",
     "reviewed": {
       "public_text_and_data": true,
       "images_and_video_frames": true,
@@ -175,13 +183,13 @@
       "binary_and_archive_metadata": true,
       "licenses_preserved": true
     },
-    "method": "审阅报价输入与动画衔接说明、标明历史版本的仪器检查摘要、测试生成的金额输入与切轮预览、演示视频、首页、索引、版本清单和嵌套阅读说明。主程序、图鉴贴图、展柜、原有音效与研究视频沿用已审阅的相同文件。新程序载荷仅改模拟器的报价输入与动画收尾，已递归检查二进制和归档元数据；未包含个人对局、设置、内部诊断记录或参考声音原件。第三方许可保留。",
-    "release": "four-projects-20261115-r1",
-    "review_date": "2026-11-15",
+    "method": "审阅本期 README、版本索引、清单与使用说明、小吱图标各尺寸内容及二进制资源。三个入口内嵌图标与已检查的 ICO 帧一致。图鉴、研究视频、配音、字幕、嵌套研究文档及必要许可均与已审阅的上一版相同。新主程序 DLL、各 EXE、主程序文档与展柜入口已完成归档、元数据和目录来源检查。",
+    "release": "four-projects-20261119-r1",
+    "review_date": "2026-11-19",
     "recursive_scan_counts": {
       "zip_archives": 3,
-      "files": 2129,
-      "pe_files": 793,
+      "files": 2131,
+      "pe_files": 794,
       "png_images": 959,
       "text_files": 79,
       "debug_records": 813,
@@ -190,7 +198,7 @@
       "video_metadata": 2
     }
   },
-  "release_title": "AuctionPilot 四项目合集 · Arena Preview14 · 2026-11-15",
+  "release_title": "AuctionPilot 四项目合集 · 浮窗拖动修复 · 2026-11-19",
   "retired_releases": [
     {
       "tag": "four-projects-20261114-r1",
@@ -218,9 +226,9 @@
     }
   ],
   "documents": {
-    "README.md": "f3431bba22796ca549f01c3e2eb2bc63079ae00351acee24d32212fed0dfc08f",
+    "README.md": "52ba2ac6e65bb4696815bf5ef2cde5ce9cc034b668b6534d58cb7d2be388190e",
     "PRIVACY.md": "2179885dfcfddf6edda2deaedcee6b5dd1c667d57996ba8c17469c1b61de0ba2",
-    "RELEASE_NOTES_four-projects-20261115-r1.md": "fa4db93f3dc5d770658bd495f7cd66d9c06ad79e37ca122035b169430a1f3c58",
-    "release/privacy-review.json": "73a41b5347ac1ea98f25317453953c8523065bbddfc2fbbf0919a9621412a63d"
+    "RELEASE_NOTES_four-projects-20261119-r1.md": "aac71cb157438565e2c9c59ee4a92f709b3070c768e05220aad24db3e4f5fe90",
+    "release/privacy-review.json": "02d620805d3492ddd3fa4e0b4744e8edf9e974b40e07bd7d27f712f0e6b68cba"
   }
 }
